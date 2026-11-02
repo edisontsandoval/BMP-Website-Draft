@@ -1,0 +1,57 @@
+name: Refresh job listings
+
+# Refreshes the job list every morning. GitHub runs scheduled jobs in UTC and often
+# starts them late when it is busy, so there are several runs: about 6 AM, 8 AM and
+# 9:45 AM Toronto time, plus a 1 PM catch-up. Only runs that find a change commit.
+# It also runs when this file or the script changes, and any time from the
+# Actions tab with "Run workflow".
+on:
+  schedule:
+    - cron: "17 10 * * *"
+    - cron: "17 12 * * *"
+    - cron: "47 13 * * *"
+    - cron: "17 17 * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-jobs.yml"
+      - "scripts/update_jobs.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: refresh-jobs
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the UKG job board and update the site
+        run: python3 scripts/update_jobs.py
+
+      - name: Save the changes
+        id: save
+        run: |
+          if git diff --quiet; then
+            echo "Nothing changed."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html jobs.json
+            git commit -m "Refresh job listings from the UKG job board"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Republish the site
+        if: steps.save.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "GitHub Pages will publish on its own."
