@@ -1,16 +1,17 @@
 name: Refresh job listings
 
-# Refreshes the job list every morning. GitHub runs scheduled jobs in UTC and often
-# starts them late when it is busy, so there are several runs: about 6 AM, 8 AM and
-# 9:45 AM Toronto time, plus a 1 PM catch-up. Only runs that find a change commit.
+# Refreshes the job list every morning so it's current by 8:00 AM Toronto time.
+# GitHub runs schedules in UTC and doesn't adjust for daylight saving, and busy
+# periods can start a run 10 to 30 minutes late, so it runs three times:
+# 11:40, 12:40 and 13:40 UTC. In winter (EST) that's 6:40, 7:40 and 8:40 AM;
+# in summer (EDT) it's 7:40, 8:40 and 9:40 AM. Only runs that find a change commit.
 # It also runs when this file or the script changes, and any time from the
 # Actions tab with "Run workflow".
 on:
   schedule:
-    - cron: "17 10 * * *"
-    - cron: "17 12 * * *"
-    - cron: "47 13 * * *"
-    - cron: "17 17 * * *"
+    - cron: "40 11 * * *"
+    - cron: "40 12 * * *"
+    - cron: "40 13 * * *"
   push:
     branches: [main]
     paths:

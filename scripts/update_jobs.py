@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refresh the job listings on the Bayshore Medical Personnel draft site from the UKG job board.
 
-Runs every morning (several times, for reliability) from GitHub Actions (.github/workflows/update-jobs.yml).
+Runs every morning before 8:00 AM Toronto time (three runs, for reliability) from GitHub Actions (.github/workflows/update-jobs.yml).
 It reads every posting on the public BMP job board, rewrites the job data
 inside index.html and the "as of" date, and saves a copy to jobs.json.
 
