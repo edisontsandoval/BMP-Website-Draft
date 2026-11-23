@@ -1,7 +1,143 @@
 {
- "checked": "2026-11-22T15:27-05:00",
- "count": 45,
+ "checked": "2026-11-23T17:52-05:00",
+ "count": 52,
  "jobs": [
+  {
+   "id": "33caf229-ca89-4556-b50f-f93e5d9f800e",
+   "t": "Public Health - Community Health Nurse",
+   "req": "PUBLI003439",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Edmonton",
+     "AB",
+     51.047,
+     -114.063
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Community Health Nurse to join our team in Edmonton, AB! We're looking for dedicated professionals to make a meaningful impact in Military Health Services."
+  },
+  {
+   "id": "83049161-e8c6-4eba-982c-b470f21d06e8",
+   "t": "RN Case Manager Care Coordinator",
+   "req": "RNCAS003438",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Toronto",
+     "ON",
+     43.654,
+     -79.384
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a full-time RN Case Manager (Care Coordinator) in Toronto, ON to provide case management service to our client’s members who suffer from protracted and complex health issues."
+  },
+  {
+   "id": "d3204e5b-96b3-469a-a7b3-f50fb0a46b83",
+   "t": "Bilingual Primary Care Registered Nurse",
+   "req": "BILIN003437",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Ottawa",
+     "ON",
+     45.326,
+     -75.128
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a Part-time (22.5/hrs) Bilingual Primary Care Registered Nurse in Ottawa, ON to provide service to our client in a primary healthcare setting."
+  },
+  {
+   "id": "57e38d4a-340b-4758-b995-54b188ec97fc",
+   "t": "Registered Practical Nurse Clinic",
+   "req": "REGIS003436",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "London",
+     "ON",
+     42.988,
+     -81.246
+    ]
+   ],
+   "b": "The RPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
+  },
+  {
+   "id": "d6b9236f-052d-412d-8e91-46db987c0c80",
+   "t": "Mental Health Registered Nurse",
+   "req": "MENTA003403",
+   "ft": false,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Wainwright",
+     "AB",
+     52.842,
+     -110.829
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is actively searching for a highly motivated part-time Mental Health Registered Nurse with three (3) years of experience to join our team in Wainwright, Alberta"
+  },
+  {
+   "id": "f8e4a85a-90ff-438d-bd17-ff7c73ed9a7e",
+   "t": "Licensed Practical Nurse",
+   "req": "LICEN003435",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Cold Lake",
+     "AB",
+     54.412,
+     -110.235
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a full-time Licensed Practical Nurse (LPN) with one (1) full-time equivalent year of experience to join the team in Cold Lake, Alberta."
+  },
+  {
+   "id": "20198612-0ec1-4ca1-9a8a-40c852ea3b20",
+   "t": "Clinic Licensed Practical Nurse LPN",
+   "req": "LICEN003434",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Shilo",
+     "MB",
+     49.838,
+     -99.463
+    ]
+   ],
+   "b": "The LPN shall possess, as a minimum, one (1) part-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
+  },
+  {
+   "id": "67df50e6-b0d3-48a6-8618-b20c2774f585",
+   "t": "Clinic Registered Practical Nurse",
+   "req": "REGIS003432",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-23",
+   "loc": [
+    [
+     "Kingston",
+     "ON",
+     44.258,
+     -76.49
+    ]
+   ],
+   "b": "The RPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
+  },
   {
    "id": "1553f3b6-83cf-4093-825d-218659f267ff",
    "t": "Registered Practical Nurse",
@@ -741,23 +877,6 @@
     ]
    ],
    "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Pharmacy Assistant to join our team in Halifax, NS! We're looking for dedicated professionals with at least 3 years of experience as a Pharmacy Assistant."
-  },
-  {
-   "id": "e925532a-09f2-4fa2-a929-a60e55cc403d",
-   "t": "Registered Practical Nurse",
-   "req": "REGIS003249",
-   "ft": true,
-   "cat": "Nurse",
-   "d": "2026-09-22",
-   "loc": [
-    [
-     "Kingston",
-     "ON",
-     44.258,
-     -76.49
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is excited to announce a Full-time Contract opportunity for a Registered Practical Nurse (RPN/LPN) with one (1) year of experience to join the team in Kingston, Ontario.  We're looking for dedicated professionals to make a meaningful impact in Military Health Services!"
   },
   {
    "id": "5f07d649-bde8-493f-b7a9-25040802bcd8",
