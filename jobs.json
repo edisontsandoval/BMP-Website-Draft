@@ -1,7 +1,109 @@
 {
- "checked": "2026-11-23T20:10-05:00",
- "count": 50,
+ "checked": "2026-11-24T16:28-05:00",
+ "count": 51,
  "jobs": [
+  {
+   "id": "d1a0b4c7-4df6-48fe-9a89-a0723d64bc4e",
+   "t": "Registered Practical Nurse",
+   "req": "REGIS003440",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Meaford",
+     "ON",
+     44.59,
+     -80.733
+    ]
+   ],
+   "b": "The RPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
+  },
+  {
+   "id": "5cc9e630-15f0-43d1-8c16-6e2a7a5c26a0",
+   "t": "BILINGUAL RN Case Manager Care Coordinator",
+   "req": "BILIN003303",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Ottawa",
+     "ON",
+     45.326,
+     -75.128
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a BILINGUAL (FR/ENG) full-time RN Case Manager (Care Coordinator) in Ottawa, Ontario to provide case management service to our client’s members who suffer from protracted and complex health issues."
+  },
+  {
+   "id": "f0028f7b-fc37-420b-b0be-af04728c50fa",
+   "t": "Pharmacist",
+   "req": "PHARM003080",
+   "ft": true,
+   "cat": "Other Care and Support to Patients",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Petawawa",
+     "ON",
+     45.892,
+     -77.255
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Pharmacist to join our team in Petawawa, ON! We're looking for dedicated professionals to make a meaningful impact in Military Health Services."
+  },
+  {
+   "id": "63f9497c-a495-449a-a52f-79433362c497",
+   "t": "Pharmacist",
+   "req": "PHARM003341",
+   "ft": true,
+   "cat": "Other Care and Support to Patients",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Borden",
+     "ON",
+     44.283,
+     -79.894
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a full-time Pharmacist to provide service to our client in Borden, ON.  Our Pharmacists are the medication management experts of the multidisciplinary healthcare team, and play a critical role in the clinics."
+  },
+  {
+   "id": "60286a9a-49ea-43ea-9e6b-a8303840fb47",
+   "t": "Public Health Nurse",
+   "req": "PUBLI003333",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Shilo",
+     "MB",
+     49.838,
+     -99.463
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is seeking a full-time Public Health Registered Nurse to join the team in Shilo, Manitoba!"
+  },
+  {
+   "id": "54359b73-5345-458c-8b0e-6c8d26884eea",
+   "t": "Licensed Practical Nurse",
+   "req": "REGIS002787",
+   "ft": true,
+   "cat": "Nurse",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Wainwright",
+     "AB",
+     52.842,
+     -110.829
+    ]
+   ],
+   "b": "The LPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
+  },
   {
    "id": "33caf229-ca89-4556-b50f-f93e5d9f800e",
    "t": "Public Health - Community Health Nurse",
@@ -679,40 +781,6 @@
    "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Licensed Practical Nurse to join our team in Winnipeg, MB! We're looking for dedicated professionals to make a meaningful impact in Military Health Services"
   },
   {
-   "id": "63f9497c-a495-449a-a52f-79433362c497",
-   "t": "Pharmacist",
-   "req": "PHARM003341",
-   "ft": true,
-   "cat": "Other Care and Support to Patients",
-   "d": "2026-10-29",
-   "loc": [
-    [
-     "Borden",
-     "ON",
-     44.283,
-     -79.894
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is seeking a full-time Pharmacist to provide service to our client in Borden, ON.  Our Pharmacists are the medication management experts of the multidisciplinary healthcare team, and play a critical role in the clinics."
-  },
-  {
-   "id": "60286a9a-49ea-43ea-9e6b-a8303840fb47",
-   "t": "Public Health Nurse",
-   "req": "PUBLI003333",
-   "ft": true,
-   "cat": "Nurse",
-   "d": "2026-10-28",
-   "loc": [
-    [
-     "Shilo",
-     "MB",
-     49.838,
-     -99.463
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is seeking a full-time Public Health Registered Nurse to join the team in Shilo, Manitoba!"
-  },
-  {
    "id": "96bbd3a3-66db-4f0c-933d-cef24fb71d7b",
    "t": "Registered Practical Nurse",
    "req": "REGIS003284",
@@ -747,23 +815,6 @@
    "b": "The Clinical Nurse Lead provides onsite clinical leadership and operational support within the BC Immigration Holding Centre."
   },
   {
-   "id": "54359b73-5345-458c-8b0e-6c8d26884eea",
-   "t": "Licensed Practical Nurse",
-   "req": "REGIS002787",
-   "ft": true,
-   "cat": "Nurse",
-   "d": "2026-10-23",
-   "loc": [
-    [
-     "Wainwright",
-     "AB",
-     52.842,
-     -110.829
-    ]
-   ],
-   "b": "The LPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
-  },
-  {
    "id": "4b34ff0e-7e6c-4264-b5af-993c44badc92",
    "t": "Licensed Practical Nurse",
    "req": "RPNLP002960",
@@ -779,40 +830,6 @@
     ]
    ],
    "b": "The LPN shall possess, as a minimum, one (1) full-time equivalent year of experience within the last 3 years in nursing practice conducting patient assessments and providing direct nursing care for a broad range of diseases in the adult population in a primary care or ambulatory care setting."
-  },
-  {
-   "id": "f0028f7b-fc37-420b-b0be-af04728c50fa",
-   "t": "Pharmacist",
-   "req": "PHARM003080",
-   "ft": true,
-   "cat": "Other Care and Support to Patients",
-   "d": "2026-10-23",
-   "loc": [
-    [
-     "Petawawa",
-     "ON",
-     45.892,
-     -77.255
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Pharmacist to join our team in Petawawa, ON! We're looking for dedicated professionals to make a meaningful impact in Military Health Services."
-  },
-  {
-   "id": "5cc9e630-15f0-43d1-8c16-6e2a7a5c26a0",
-   "t": "BILINGUAL RN Case Manager Care Coordinator",
-   "req": "BILIN003303",
-   "ft": true,
-   "cat": "Nurse",
-   "d": "2026-10-23",
-   "loc": [
-    [
-     "Ottawa",
-     "ON",
-     45.326,
-     -75.128
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is seeking a BILINGUAL (FR/ENG) full-time RN Case Manager (Care Coordinator) in Ottawa, Ontario to provide case management service to our client’s members who suffer from protracted and complex health issues."
   },
   {
    "id": "215376f9-331b-4fe5-be4e-22f66941f294",
