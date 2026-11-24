@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Draft 1 of the new medicalpersonnel.ca for leadership review: find health care work with Bayshore Medical Personnel across Canada, or partner with BMP for a federal health program.">
+<meta name="description" content="Draft 1 of the new medicalpersonnel.ca for leadership review: find health care work with Bayshore Medical Personnel across Canada, or partner with us on a federal health program.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bayshore Medical Personnel">
 <meta property="og:title" content="Bayshore Medical Personnel website redesign, Draft 1">
@@ -653,6 +653,25 @@ details p{padding:0 0 14px;max-width:44rem}
 .q-photo{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;box-shadow:0 10px 30px -14px rgba(11,67,91,.45)}
 .q-body{display:grid;gap:16px}
 @media (max-width:640px){.quote.with-photo{grid-template-columns:minmax(0,1fr)}.q-photo{width:150px}}
+/* icons on the "Working with" points */
+.work .w-ic{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#E6F0F4;color:var(--blue);margin-bottom:4px}
+.work .w-ic svg{width:24px;height:24px}
+/* home map: provinces list, open one to see its bases and communities */
+.provs{display:grid;border-top:1px solid rgba(255,255,255,.14)}
+.pv{border-bottom:1px solid rgba(255,255,255,.14)}
+.pv-b{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:6px 2px;background:none;border:0;color:#fff;font:600 16.5px var(--sans);text-align:left;cursor:pointer}
+.pv-b span{flex:1}
+.pv-b b{font:600 15px var(--sans);color:#fff;background:rgba(255,255,255,.1);border-radius:999px;min-width:30px;text-align:center;padding:1px 8px}
+.pv-b .chev{width:18px;height:18px;flex:none;transition:transform .2s;opacity:.8}
+.pv.open .pv-b .chev{transform:rotate(180deg)}
+.pv-b:hover span{text-decoration:underline;text-underline-offset:3px}
+.pv-list{display:grid;padding:0 0 10px 14px;border-left:2px solid var(--red);margin:0 0 10px 4px}
+.pv-list button{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:40px;padding:4px 6px;background:none;border:0;color:#DCEAF0;font:400 15.5px var(--sans);text-align:left;cursor:pointer;border-radius:6px}
+.pv-list button:hover{background:rgba(255,255,255,.07);color:#fff}
+.pv-list b{font-weight:600;color:#fff}
+.deep .map.lite .pin.dim{opacity:.28;box-shadow:none}
+.deep .map.lite .pin.dim::after{display:none}
+@media (prefers-reduced-motion:reduce){.pv-b .chev{transition:none}}
 </style>
 
 <div class="draft" id="draft-note" role="note"><div class="wrap"><p><strong>Draft 1 for leadership review.</strong> Text marked <span class="ph">like this</span> still needs facts or approval. Forms, job matching and Ask BMP are demos, and nothing is sent.</p><button type="button" data-act="dnclose">Got it</button></div></div>
@@ -701,7 +720,7 @@ details p{padding:0 0 14px;max-width:44rem}
     <div><h2>Contact Us</h2><address>Bayshore Medical Personnel<br>1547 Merivale Road, Suite 220<br>Ottawa, ON K2G 4V3</address><span>1-855-272-5700 <span class="ph">[hours]</span></span><span>Clients: BMPinfo@bayshore.ca</span><span>Careers: BMPrecruiter@bayshore.ca</span></div>
     <div><h2>Health Professionals</h2><a href="#find-work">Find work</a><a href="#roles">Roles we hire</a><a href="#locations">Locations</a><a href="#find-work" data-scroll="sec-pool">Join our talent pool</a></div>
     <div><h2>Clients</h2><a href="#partners">Partner with us</a><a href="#partners" data-scroll="sec-how">How we work</a><a href="#partners" data-scroll="sec-request">Start an enquiry</a></div>
-    <div><h2>About BMP</h2><a href="#about">Our story</a><a href="#news">News and updates</a><a href="#verify">Verify a recruiter</a></div>
+    <div><h2>About us</h2><a href="#about">Our story</a><a href="#news">News and updates</a><a href="#verify">Verify a recruiter</a></div>
   </div>
   <p class="foot-legal">Bayshore Medical Personnel is part of Bayshore HealthCare Staffing, the staffing division of Bayshore HealthCare, alongside Carecor Health Services, 24/7 Occupational &amp; Emergency Medicine Solutions and Bayshore Northern Staffing. Bayshore HealthCare is ISO 9001 registered and an RNAO Best Practice Spotlight Organization. <span class="ph">[Add official seal files]</span> &trade;&reg; Trademarks appearing on this website are owned by Polar Valley Investments Ltd. and used under license. Bayshore&rsquo;s community-based services are governed by ISO 9001 quality standards. Bayshore is committed to ensuring the confidentiality and protection of personal information.</p>
   <div class="foot-bot">
@@ -850,24 +869,24 @@ function regionJobs(id){return JOBS.filter(function(j){return j.regions.indexOf(
 function regionPlaces(id){var seen={},out=[];regionJobs(id).forEach(function(j){j.locs.forEach(function(l){if(regionOf(l.prov)===id&&!seen[l.city]){seen[l.city]=1;out.push(l.city);}});});return out;}
 var PHOTO=function(f){return 'media/photos/'+f;};
 var REGIONS=[
-  {id:'atl',name:'Atlantic Canada',provs:'Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland and Labrador',photo:['city-halifax.jpg','The Halifax waterfront boardwalk and harbour at dusk','Halifax','50% 70%'],body:'[Short description of BMP’s work in Atlantic Canada, from Operations.]'},
-  {id:'qc',name:'Quebec',provs:'Quebec',photo:['city-quebec.jpg','Old Québec City on the cliffs above the St. Lawrence River in autumn','Québec City','50% 45%'],body:'Many Quebec postings ask for French, or English and French. [Short description of BMP’s work in Quebec, from Operations.]'},
-  {id:'on',name:'Ontario',provs:'Ontario',photo:['city-ottawa.jpg','Parliament Hill above the Ottawa River on a winter morning','Ottawa','50% 55%'],body:'BMP’s administrative team is based in Ontario, at our Ottawa office on Merivale Road. [Short description of BMP’s work in Ontario, from Operations.]'},
-  {id:'pr',name:'Prairies',provs:'Manitoba, Saskatchewan and Alberta',photo:['city-winnipeg.jpg','The Winnipeg skyline and the Red River at sunset','Winnipeg','50% 60%'],body:'[Short description of BMP’s work in Manitoba, Saskatchewan and Alberta, from Operations.]'},
-  {id:'bc',name:'British Columbia',provs:'British Columbia',photo:['city-victoria.jpg','Float planes in Victoria’s Inner Harbour on a spring day','Victoria','50% 60%'],body:'[Short description of BMP’s work in British Columbia, from Operations.]'}
+  {id:'atl',name:'Atlantic Canada',provs:'Nova Scotia, New Brunswick, Prince Edward Island, Newfoundland and Labrador',photo:['city-halifax.jpg','The Halifax waterfront boardwalk and harbour at dusk','Halifax','50% 70%'],body:'[Short description of our work in Atlantic Canada, from Operations.]'},
+  {id:'qc',name:'Quebec',provs:'Quebec',photo:['city-quebec.jpg','Old Québec City on the cliffs above the St. Lawrence River in autumn','Québec City','50% 45%'],body:'Many Quebec postings ask for French, or English and French. [Short description of our work in Quebec, from Operations.]'},
+  {id:'on',name:'Ontario',provs:'Ontario',photo:['city-ottawa.jpg','Parliament Hill above the Ottawa River on a winter morning','Ottawa','50% 55%'],body:'Our administrative team is based in Ontario, at our Ottawa office on Merivale Road. [Short description of our work in Ontario, from Operations.]'},
+  {id:'pr',name:'Prairies',provs:'Manitoba, Saskatchewan and Alberta',photo:['city-winnipeg.jpg','The Winnipeg skyline and the Red River at sunset','Winnipeg','50% 60%'],body:'[Short description of our work in Manitoba, Saskatchewan and Alberta, from Operations.]'},
+  {id:'bc',name:'British Columbia',provs:'British Columbia',photo:['city-victoria.jpg','Float planes in Victoria’s Inner Harbour on a spring day','Victoria','50% 60%'],body:'[Short description of our work in British Columbia, from Operations.]'}
 ];
 var ROLES=[
-  {key:'physician',name:'Physician',short:'physician',group:'Medicine',photo:['role-physician.jpg','A physician in a white coat listening to a patient in a clinic consultation room','50% 35%'],teaser:'Primary care, occupational health and disability management.',summary:'BMP recruits physicians for clinics that serve federal clients, notably those with occupational health and disability management experience.',duties:['See patients in a primary care clinic','Provide on-site and on-call coverage when a contract asks for it','[Confirm typical duties with Operations]'],needs:'A licence to practise in the province where you work. Some postings ask for recent clinical experience, for example six months in the last two years. [Confirm]'},
-  {key:'rn',name:'Registered Nurse',short:'RN',group:'Nursing',photo:['role-rn.jpg','A nurse taking a patient’s blood pressure in a clinic exam room','45% 35%'],teaser:'Primary care, public health, perioperative and case management.',summary:'Registered Nurses work in primary care clinics, public health, perioperative care and case management. BMP also looks for RNs with conscious sedation, occupational health or disability management experience.',duties:['Assess patients and provide nursing care in a primary care setting','Support public health and immunization programs [confirm]','Coordinate care for clients with complex health needs, in case management roles'],needs:'Active registration with your provincial nursing regulator. Experience requirements vary by posting. [Confirm]'},
+  {key:'physician',name:'Physician',short:'physician',group:'Medicine',photo:['role-physician.jpg','A physician in a white coat listening to a patient in a clinic consultation room','50% 35%'],teaser:'Primary care, occupational health and disability management.',summary:'Bayshore Medical Personnel recruits physicians for clinics that serve federal clients, notably those with occupational health and disability management experience.',duties:['See patients in a primary care clinic','Provide on-site and on-call coverage when a contract asks for it','[Confirm typical duties with Operations]'],needs:'A licence to practise in the province where you work. Some postings ask for recent clinical experience, for example six months in the last two years. [Confirm]'},
+  {key:'rn',name:'Registered Nurse',short:'RN',group:'Nursing',photo:['role-rn.jpg','A nurse taking a patient’s blood pressure in a clinic exam room','45% 35%'],teaser:'Primary care, public health, perioperative and case management.',summary:'Registered Nurses work in primary care clinics, public health, perioperative care and case management. We also look for RNs with conscious sedation, occupational health or disability management experience.',duties:['Assess patients and provide nursing care in a primary care setting','Support public health and immunization programs [confirm]','Coordinate care for clients with complex health needs, in case management roles'],needs:'Active registration with your provincial nursing regulator. Experience requirements vary by posting. [Confirm]'},
   {key:'mh',name:'Mental Health Nurse',short:'mental health nursing',group:'Nursing',photo:['role-mental-health.jpg','A mental health nurse listening to a client in a quiet counselling room','40% 35%'],teaser:'Mental health nursing for people who serve.',summary:'Mental Health Registered Nurses support clients in clinic settings. Several current postings are bilingual.',duties:['Assess and support clients with mental health needs','Work with the clinic’s physicians, psychologists and social workers [confirm]','Keep clear records and follow-up plans'],needs:'Active RN registration. Current postings ask for three years of mental health experience, some within the last five years.'},
   {key:'rpn',name:'Registered or Licensed Practical Nurse',short:'RPN/LPN',group:'Nursing',photo:['role-rpn.jpg','A practical nurse preparing a wound dressing tray in a clinic treatment room','50% 30%'],teaser:'Hands-on care in primary and ambulatory clinics.',summary:'Practical nurses see patients on a walk-in and appointment basis in primary and ambulatory care settings such as treatment rooms and specialty clinics.',duties:['Assess patients and provide direct nursing care','Work in treatment rooms, care delivery units and specialty clinics','Support RNs and physicians across a broad range of adult health needs'],needs:'An active RPN (Ontario) or LPN licence. Postings ask for at least one full-time equivalent year of recent experience in primary or ambulatory care.'},
   {key:'ot',name:'Occupational Therapist',short:'OT',group:'Rehabilitation',photo:['role-ot.jpg','An occupational therapist guiding a client through a hand-strengthening exercise','45% 40%'],teaser:'Rehabilitation and mental-health-focused therapy.',summary:'Occupational Therapists help clients recover and return to their duties. Some roles focus on mental health.',duties:['Assess function and set goals with each client','Plan and deliver therapy, including mental-health-focused care in some roles','Work Monday to Friday days in some postings, with no nights or weekends'],needs:'Registration with your provincial OT regulator. Postings ask for at least one year of experience.'},
   {key:'psych',name:'Psychologist',short:'psychologist',group:'Mental health',photo:['role-psychologist.jpg','A psychologist listening to a client in a calm office with bookshelves','60% 35%'],teaser:'Assessment and treatment for federal clients.',summary:'Psychologists provide assessment and treatment services to federal clients. Current openings include part-time work.',duties:['Assess and treat clients referred by the clinic','Work with the wider health team on care plans [confirm]','Keep records to the client’s standards'],needs:'Registration with your provincial psychology regulator. [Confirm experience requirements]'},
-  {key:'pharm',name:'Pharmacist',short:'pharmacist',group:'Pharmacy',photo:['role-pharmacist.jpg','A pharmacist explaining a prescription to a patient at a clinic pharmacy counter','55% 35%'],teaser:'Medication management for a multidisciplinary team.',summary:'BMP pharmacists are the medication management experts of the clinic team and play a central role in the clinics they serve.',duties:['Review and dispense medications','Counsel patients and advise the care team on medications','Support safe medication practices in the clinic'],needs:'A licence with your provincial pharmacy regulator. [Confirm experience requirements]'},
+  {key:'pharm',name:'Pharmacist',short:'pharmacist',group:'Pharmacy',photo:['role-pharmacist.jpg','A pharmacist explaining a prescription to a patient at a clinic pharmacy counter','55% 35%'],teaser:'Medication management for a multidisciplinary team.',summary:'Our pharmacists are the medication management experts of the clinic team and play a central role in the clinics they serve.',duties:['Review and dispense medications','Counsel patients and advise the care team on medications','Support safe medication practices in the clinic'],needs:'A licence with your provincial pharmacy regulator. [Confirm experience requirements]'},
   {key:'pa',name:'Pharmacy Assistant',short:'pharmacy assistant',group:'Pharmacy',photo:['role-pharmacy-assistant.jpg','A pharmacy assistant organizing medication boxes on clinic pharmacy shelves','60% 35%'],teaser:'Keep the clinic pharmacy organized and stocked.',summary:'Pharmacy Assistants support the pharmacist with stock, records and the day-to-day running of the clinic pharmacy.',duties:['Receive, store and organize medication stock','Prepare orders under the pharmacist’s direction','Keep pharmacy records up to date'],needs:'Current postings ask for at least three years of experience as a pharmacy assistant.'}
 ];
 var CLIENTS=[
-  ['Department of National Defence','Health services for members of the Canadian Armed Forces, delivered with Calian.'],
+  ['Department of National Defence','Health care professionals for clinics that serve members of the Canadian Armed Forces.'],
   ['Royal Canadian Mounted Police','Health care professionals for programs that support RCMP members.'],
   ['Veterans Affairs Canada','Health care professionals for programs that support Veterans and their families.'],
   ['Public Health Agency of Canada','Health care professionals for federal public health programs.']
@@ -931,9 +950,9 @@ function placeIndex(list,region){
 }
 function mapHTML(id,list,o){
   var vb=o.vb||[0,0,MAP.W,MAP.H],places=placeIndex(list,o.region);
-  var svg='<svg viewBox="'+vb.join(' ')+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">'+MAP.provs.map(function(p){return '<path class="prov'+(o.region&&o.region!=='all'&&regionOf(p.c)===o.region?' on':'')+'" d="'+p.d+'"/>';}).join('')+'</svg>';
+  var svg='<svg viewBox="'+vb.join(' ')+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">'+MAP.provs.map(function(p){return '<path class="prov'+((o.region&&o.region!=='all'&&regionOf(p.c)===o.region)||(o.prov&&p.c===o.prov)?' on':'')+'" d="'+p.d+'"/>';}).join('')+'</svg>';
   var pins=places.map(function(p,i){var xy=proj(p.lon,p.lat),n=p.jobs.length,s=Math.round(13+Math.sqrt(n)*5.5);
-    return '<button type="button" class="pin" data-act="'+o.act+'" data-k="'+esc(p.key)+'" aria-pressed="'+(o.sel===p.key)+'" aria-label="'+esc(p.city+', '+(PROV_NAME[p.prov]||p.prov)+': '+n+' opening'+(n===1?'':'s'))+'" style="left:'+((xy[0]-vb[0])/vb[2]*100).toFixed(2)+'%;top:'+((xy[1]-vb[1])/vb[3]*100).toFixed(2)+'%;width:'+s+'px;height:'+s+'px;--d:'+(i*40)+'ms"><span class="tip" aria-hidden="true">'+esc(p.city)+', '+n+' opening'+(n===1?'':'s')+'</span></button>';}).join('');
+    return '<button type="button" class="pin'+(o.prov&&p.prov!==o.prov?' dim':'')+'" data-act="'+o.act+'" data-k="'+esc(p.key)+'" aria-pressed="'+(o.sel===p.key)+'" aria-label="'+esc(p.city+', '+(PROV_NAME[p.prov]||p.prov)+': '+n+' opening'+(n===1?'':'s'))+'" style="left:'+((xy[0]-vb[0])/vb[2]*100).toFixed(2)+'%;top:'+((xy[1]-vb[1])/vb[3]*100).toFixed(2)+'%;width:'+s+'px;height:'+s+'px;--d:'+(i*40)+'ms"><span class="tip" aria-hidden="true">'+esc(p.city)+', '+n+' opening'+(n===1?'':'s')+'</span></button>';}).join('');
   return '<div class="map'+(o.cls?' '+o.cls:'')+'" id="'+id+'" style="aspect-ratio:'+vb[2]+'/'+vb[3]+'">'+svg+pins+'</div>';
 }
 var mapIO=null;
@@ -945,7 +964,7 @@ var S={
   route:'home',
   hero:{q:WORK_EX[0][1]},
   vidPlaying:!matchMedia('(prefers-reduced-motion: reduce)').matches, heroVideo:heroVideoSrc(),
-  M:{region:'all',sel:null},
+  M:{region:'all',sel:null,prov:null},
   roleSel:1,
   J:{role:'all',region:'all',shift:'all',settings:[],near:null,kw:'',open:null,q:WORK_EX[0][1],matched:false,preview:[],show:10},
   C:{step:1,urg:'quarter',need:STAFF_EX[0][1],ai:null,aiAccepted:false},
@@ -1040,7 +1059,7 @@ PAGES.home=function(){
       '<h1 id="hero-h" class="t-hero" tabindex="-1">Care for the people who serve Canada</h1>'+
       '<p class="lede">Physicians, nurses, therapists and pharmacy staff for clinics that serve the Canadian Armed Forces, the RCMP, Veterans and federal health programs.</p>'+
       '<div class="ask-box">'+
-        '<label for="hero-q">Describe the work you want. BMP AI will check every current opening.</label>'+
+        '<label for="hero-q">Describe the work you want. Our AI will check every current opening.</label>'+
         '<div class="ask-field"><textarea id="hero-q" rows="2">'+esc(S.hero.q)+'</textarea><button type="button" class="btn btn-red" data-act="hgo">Find my match</button></div>'+
         '<div class="tries" aria-label="Examples">'+WORK_EX.map(function(x,i){return '<button type="button" class="try" data-act="hex" data-i="'+i+'">'+esc(x[0])+'</button>';}).join('')+'</div>'+
         '<p class="note">Please don’t include health information or ID numbers.</p>'+
@@ -1053,7 +1072,7 @@ PAGES.home=function(){
 
   '<section class="sec deep map-sec" aria-labelledby="map-h"><div class="wrap">'+
     '<div class="head"><div><h2 id="map-h" class="t-1">Openings across Canada</h2></div>'+
-      '<p class="map-count"><strong>'+pl(JOBS.length,'opening')+'</strong> in '+LIVE.communities+' communities and '+LIVE.provinces+' provinces, from the BMP job board on '+SNAP+'. Select a pin to see what’s open there.</p></div>'+
+      '<p class="map-count"><strong>'+pl(JOBS.length,'opening')+'</strong> in '+LIVE.communities+' communities and '+LIVE.provinces+' provinces, from the Bayshore Medical Personnel job board on '+SNAP+'. Select a province or a pin to see what’s open there.</p></div>'+
     mapBlock('home-map')+
   '</div></section>'+
 
@@ -1063,14 +1082,14 @@ PAGES.home=function(){
   '</div></section>'+
 
   '<section class="sec" aria-labelledby="work-h"><div class="wrap">'+
-    '<div class="head"><div><h2 id="work-h" class="t-1">What the work is like</h2><p class="lede">BMP clinicians work in clinics and offices that serve federal clients, with a remote team of recruiters behind them.</p></div></div>'+
-    '<div class="work">'+WORK_FACTS.map(function(r){return '<div><h3>'+esc(r[0])+'</h3><p>'+ph(r[1])+'</p></div>';}).join('')+'</div>'+
+    '<div class="head"><div><h2 id="work-h" class="t-1">Working with Bayshore Medical Personnel</h2><p class="lede">Our health care professionals work in clinics and offices to support the health care needs of our federal clients.</p></div></div>'+
+    '<div class="work">'+WORK_FACTS.map(function(r){return '<div><span class="w-ic" aria-hidden="true">'+WORK_ICONS[r[2]]+'</span><h3>'+esc(r[0])+'</h3><p>'+ph(r[1])+'</p></div>';}).join('')+'</div>'+
   '</div></section>'+
 
   '<section class="sec blue on-blue" aria-labelledby="pb-h"><div class="wrap p-grid">'+
-    '<div style="display:grid;gap:18px"><h2 id="pb-h" class="t-1">Running a federal health program?</h2><p class="lede">We recruit and employ health professionals for institutional and corporate clients. Today that includes:</p>'+
+    '<div style="display:grid;gap:18px"><h2 id="pb-h" class="t-1">Health professionals for Canada’s federal health programs</h2><p class="lede">We recruit, employ and support clinicians for federal departments across Canada. Our federal clients include:</p>'+
       '<ul class="clients-inline">'+CLIENTS.map(function(c){return '<li>'+esc(c[0])+'<span>'+ph(c[1])+'</span></li>';}).join('')+'</ul>'+
-      '<p><a class="lnk" href="#partners">How we work with clients</a></p></div>'+
+      '<p><a class="btn btn-white" href="#partners">How we work with clients</a></p></div>'+
     partnerBox()+
   '</div></section>'+
 
@@ -1087,17 +1106,26 @@ PAGES.home=function(){
   '<section class="sec tight" aria-label="Talent pool"><div class="wrap closing"><div style="display:grid;gap:8px"><h2 class="t-2">Not seeing your role yet?</h2><p>Share your CV and the role you want. A recruiter will contact you when a matching position opens.</p></div><a class="btn btn-blue" href="#find-work" data-scroll="sec-pool">Join the talent pool</a></div></section>';
 };
 var WORK_FACTS=[
-  ['Weekday options','Many positions have no evenings or weekends, with a stable work volume and more time with each patient. Each posting lists its hours.'],
-  ['Patients who serve','Some roles care for Armed Forces members, RCMP members and Veterans, many of them working to recover or stay fit for duty.'],
-  ['A new community','Some positions let you live and work somewhere new, as part of a full health care team on site.'],
-  ['Pay and benefits','Pay is based on your skills, experience and the local market, with health and dental benefits. [Confirm full benefits list with HR]'],
-  ['Bilingual roles','Many openings in Quebec and Ottawa ask for English and French. Some Quebec postings list a $1,000 signing bonus.'],
-  ['Backed by Bayshore','BMP is part of Bayshore HealthCare Staffing, a division of Bayshore HealthCare, a Canadian company that has provided health care since 1966.']
+  ['Weekday options','Many positions have no evenings or weekends, with a stable work volume and more time with each patient. Each posting lists its hours.','sun'],
+  ['Patients who serve','Some roles care for Canadian Armed Forces members, RCMP members and Veterans, many of them working to recover or stay fit for duty.','medal'],
+  ['A new community','Some positions let you live and work somewhere new, as part of a full health care team on site.','pin'],
+  ['Pay and benefits','Pay is based on your skills, experience and the local market, with health and dental benefits. [Confirm full benefits list with HR]','pay'],
+  ['Bilingual roles','Many openings in Quebec and Ottawa ask for English and French. Some Quebec postings list a $1,000 signing bonus.','talk'],
+  ['Backed by Bayshore','Bayshore Medical Personnel is part of Bayshore HealthCare Staffing, the staffing division of Bayshore HealthCare, a Canadian company that has provided health care since 1966.','heart']
 ];
+/* line icons for the "Working with" points, so the section is easier to skim */
+var WORK_ICONS=(function(){var s=function(d){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';};return {
+  sun:s('<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/>'),
+  medal:s('<path d="M8 2.5l2.6 6.2M16 2.5l-2.6 6.2"/><circle cx="12" cy="15" r="6"/><path d="M12 11.9l1 2 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3z"/>'),
+  pin:s('<path d="M12 21s-7-6.1-7-11.4a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.6"/>'),
+  pay:s('<circle cx="12" cy="12" r="9"/><path d="M14.7 9.3c-.5-1-1.5-1.6-2.7-1.6-1.5 0-2.7.8-2.7 2.1 0 2.9 5.6 1.4 5.6 4.3 0 1.3-1.2 2.1-2.8 2.1-1.3 0-2.3-.6-2.8-1.6M12 6.1v1.6M12 16.3v1.6"/>'),
+  talk:s('<path d="M4 4.5h10a2 2 0 0 1 2 2V11a2 2 0 0 1-2 2H9.5L6 15.8V13H4a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2z"/><path d="M18.5 9H20a2 2 0 0 1 2 2v4.5a2 2 0 0 1-2 2h-1.5v2.7L15 17.5h-3.5a2 2 0 0 1-2-2V15"/>'),
+  heart:s('<path d="M12 20.3s-8-4.8-8-10.6A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.7c0 5.8-8 10.6-8 10.6z"/><path d="M12 10.3v5M9.5 12.8h5"/>')
+};})();
 function mapBlock(id,big){
-  return '<div class="map-grid"><div>'+mapHTML(id,JOBS,{act:'mappick',sel:S.M.sel,region:S.M.region,cls:big?'big':'lite',vb:[130,0,750,620]})+
+  return '<div class="map-grid"><div>'+mapHTML(id,JOBS,{act:'mappick',sel:S.M.sel,region:S.M.region,prov:big?null:S.M.prov,cls:big?'big':'lite',vb:[130,0,750,620]})+
     (big?'':'<p class="map-key"><span class="k"><span class="k-pin" aria-hidden="true"></span>Current openings. Bigger pins mean more openings.</span></p>')+
-    '<div class="map-tabs" role="group" aria-label="Show a region">'+[['all','All of Canada']].concat(REGIONS.map(function(r){return [r.id,r.name];})).map(function(r){return '<button type="button" data-act="mapregion" data-v="'+r[0]+'" aria-pressed="'+(S.M.region===r[0])+'">'+esc(r[1])+'</button>';}).join('')+'</div></div>'+
+    (big?'<div class="map-tabs" role="group" aria-label="Show a region">'+[['all','All of Canada']].concat(REGIONS.map(function(r){return [r.id,r.name];})).map(function(r){return '<button type="button" data-act="mapregion" data-v="'+r[0]+'" aria-pressed="'+(S.M.region===r[0])+'">'+esc(r[1])+'</button>';}).join('')+'</div>':'')+'</div>'+
     '<div class="map-side" id="map-side" aria-live="polite">'+mapSide()+'</div></div>';
 }
 function mapSide(){
@@ -1106,7 +1134,18 @@ function mapSide(){
     var p=placeIndex(JOBS).filter(function(x){return x.key===M.sel;})[0];
     if(p){return '<div style="display:grid;gap:4px"><h3>'+esc(p.city)+'</h3><p class="muted">'+esc(PROV_NAME[p.prov]||p.prov)+', '+pl(p.jobs.length,'opening')+'</p></div>'+
       '<div class="places">'+p.jobs.map(function(j){return '<a href="#find-work" data-act="openjob" data-id="'+j.id+'"><span class="job"><strong>'+esc(j.title)+'</strong><span>'+shiftLabel(j)+(j.tags.length?', '+j.tags.map(function(x){return TAG_NAME[x].toLowerCase();}).join(', '):'')+'. Posted '+fmtDate(j.date)+'</span></span>'+I.right.replace('<svg','<svg width="18" height="18"')+'</a>';}).join('')+'</div>'+
-      '<div class="btn-row"><a class="btn btn-red btn-sm" href="#find-work" data-act="mapnear" data-k="'+esc(p.key)+'">Openings near '+esc(p.city)+'</a><button type="button" class="lnk" data-act="mapclear">Back to all</button></div>';}
+      '<div class="btn-row"><a class="btn btn-red btn-sm" href="#find-work" data-act="mapnear" data-k="'+esc(p.key)+'">Openings near '+esc(p.city)+'</a><button type="button" class="lnk" data-act="mapclear">'+($('.map.big')?'Back to all':'Back to provinces')+'</button></div>';}
+  }
+  if(!$('.map.big')&&M.region==='all'){
+    /* home map: provinces first; open one to see its communities */
+    var all=placeIndex(JOBS),pv={};
+    all.forEach(function(p){var g=pv[p.prov]=pv[p.prov]||{prov:p.prov,places:[],ids:{}};g.places.push(p);p.jobs.forEach(function(x){g.ids[x.id]=1;});});
+    var groups=Object.keys(pv).map(function(k){var g=pv[k];g.n=Object.keys(g.ids).length;return g;}).sort(function(a,b){return b.n-a.n||(PROV_NAME[a.prov]||a.prov).localeCompare(PROV_NAME[b.prov]||b.prov);});
+    return '<div style="display:grid;gap:6px"><h3>All of Canada</h3><p class="muted">Select a province to see its bases and communities.</p></div>'+
+      '<div class="provs">'+groups.map(function(g){var open=M.prov===g.prov,pid='pv-'+g.prov;
+        return '<div class="pv'+(open?' open':'')+'"><button type="button" class="pv-b" data-act="mapprov" data-v="'+g.prov+'" aria-expanded="'+open+'" aria-controls="'+pid+'"><span>'+esc(PROV_NAME[g.prov]||g.prov)+'</span><b>'+g.n+'</b><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>'+
+          '<div class="pv-list" id="'+pid+'"'+(open?'':' hidden')+'>'+g.places.map(function(p){return '<button type="button" data-act="mappick" data-k="'+esc(p.key)+'"><span>'+esc(p.city)+'</span><b>'+p.jobs.length+'</b></button>';}).join('')+'</div></div>';}).join('')+'</div>'+
+      '<a class="lnk" href="#find-work" data-act="jobsregion" data-v="all">See every opening</a>';
   }
   var reg=M.region==='all'?null:REGIONS.filter(function(r){return r.id===M.region;})[0];
   var places=placeIndex(JOBS,M.region),n=reg?regionJobs(reg.id).length:JOBS.length;
@@ -1115,7 +1154,7 @@ function mapSide(){
     (places.length>8?'<p class="small muted">And '+(places.length-8)+' more on the map.</p>':'')+
     '<a class="lnk" href="#find-work" data-act="jobsregion" data-v="'+M.region+'">See '+(reg?'all openings in '+esc(reg.name):'every opening')+'</a>';
 }
-function refreshMap(){var m=$('.map[id$="-map"]');if(!m)return;var id=m.id,big=m.classList.contains('big');m.outerHTML=mapHTML(id,JOBS,{act:'mappick',sel:S.M.sel,region:S.M.region,cls:big?'big':'lite',vb:[130,0,750,620]});$$('.map-tabs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===S.M.region));});$('#map-side').innerHTML=mapSide();}
+function refreshMap(){var m=$('.map[id$="-map"]');if(!m)return;var id=m.id,big=m.classList.contains('big');m.outerHTML=mapHTML(id,JOBS,{act:'mappick',sel:S.M.sel,region:S.M.region,prov:big?null:S.M.prov,cls:big?'big':'lite',vb:[130,0,750,620]});$('#map-side').classList.toggle('by-prov',!big);$$('.map-tabs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===S.M.region));});$('#map-side').innerHTML=mapSide();}
 
 function roleFilter(r){return r.key==='mh'?{role:'rn',kw:'mental health'}:{role:r.key};}
 function roleOpenings(r){var f=roleFilter(r);return JOBS.filter(function(j){return roleHas(j,f.role)&&(!f.kw||(j.title+' '+j.blurb).toLowerCase().indexOf(f.kw)>=0);});}
@@ -1130,7 +1169,7 @@ function rolesIndex(full){
     '<div class="r-act"><a class="btn btn-red btn-sm" href="#find-work" data-act="roleJobs" data-i="'+S.roleSel+'">'+(open.length?'See '+pl(open.length,'opening'):'Join the talent pool')+'</a>'+(full?'':'<a class="btn btn-line btn-sm" href="#roles">Role details</a>')+'</div></div>';
 }
 function partnerBox(){
-  return '<div class="p-box" id="sec-ai"><h3>AI partner assistant</h3><p class="small">Describe what your program needs. BMP AI pulls out the roles, numbers, location, timing, language and security details so you can check them before they reach our team.</p>'+
+  return '<div class="p-box" id="sec-ai"><h3>AI partner assistant</h3><p class="small">Describe what your program needs. Our AI pulls out the roles, numbers, location, timing, language and security details so you can check them before they reach our team.</p>'+
     '<label class="sr" for="c-need">Describe the health professionals you need</label><div class="ask-field"><textarea id="c-need" rows="3">'+esc(S.C.need)+'</textarea><button type="button" class="btn btn-blue" data-act="cbuild">Build</button></div>'+
     '<div class="tries"><span>Try</span>'+STAFF_EX.map(function(x,i){return '<button type="button" class="try" data-act="cex" data-i="'+i+'">'+esc(x[0])+'</button>';}).join('')+'</div>'+
     '<div id="c-preview"></div><p class="note">Our team reviews every enquiry before we reply. Please don’t include patient or personal health details.</p></div>';
@@ -1157,10 +1196,10 @@ function syncVidBtn(){
 
 /* ---------- FIND WORK ---------- */
 PAGES['find-work']=function(){
-  return '<section class="ph-band" aria-labelledby="fw-h"><div class="wrap"><h1 id="fw-h" class="t-1" tabindex="-1">Find work</h1><p class="lede">'+pl(JOBS.length,'opening')+' from the BMP job board, refreshed every morning. Last checked '+SNAP+'.</p></div></section>'+
+  return '<section class="ph-band" aria-labelledby="fw-h"><div class="wrap"><h1 id="fw-h" class="t-1" tabindex="-1">Find work</h1><p class="lede">'+pl(JOBS.length,'opening')+' from the Bayshore Medical Personnel job board, refreshed every morning. Last checked '+SNAP+'.</p></div></section>'+
   '<section class="sec tight"><div class="wrap fw">'+
     '<aside class="fw-side" aria-label="Search and filters">'+
-      '<div class="fw-ai"><h2>Describe the work you want</h2><label class="sr" for="fw-q">Describe the work you want</label><div class="ask-field"><textarea id="fw-q" rows="3">'+esc(S.J.q)+'</textarea><button type="button" class="btn btn-red" data-act="fwmatch">Match with BMP AI</button></div>'+
+      '<div class="fw-ai"><h2>Describe the work you want</h2><label class="sr" for="fw-q">Describe the work you want</label><div class="ask-field"><textarea id="fw-q" rows="3">'+esc(S.J.q)+'</textarea><button type="button" class="btn btn-red" data-act="fwmatch">Find my match</button></div>'+
         '<div class="tries">'+WORK_EX.map(function(x,i){return '<button type="button" class="try" data-act="fwex" data-i="'+i+'">'+esc(x[0])+'</button>';}).join('')+'</div>'+
         '<p class="note" style="color:#B9D3DD">Please don’t include health information or ID numbers.</p></div>'+
       '<div id="fw-understood"></div>'+
@@ -1186,7 +1225,7 @@ PAGES['find-work']=function(){
         '<div class="field"><label for="tp-avail">Hours</label><select id="tp-avail"><option>Full-time</option><option>Part-time</option><option>Summer or seasonal</option><option>Open to any</option></select></div>'+
         '<div class="field"><label for="tp-lang">Languages you work in</label><select id="tp-lang"><option>English</option><option>French</option><option>English and French</option></select></div>'+
         '<div class="field full"><label for="tp-cv">CV (PDF or Word)</label><input id="tp-cv" type="file" style="padding-top:10px"></div>'+
-        '<label class="check full" style="grid-column:1/-1"><input type="checkbox" id="tp-keep"><span>Keep my CV on file for <span class="ph">[12 months]</span> and contact me about future roles. I can ask BMP to remove it at any time.</span></label>'+
+        '<label class="check full" style="grid-column:1/-1"><input type="checkbox" id="tp-keep"><span>Keep my CV on file for <span class="ph">[12 months]</span> and contact me about future roles. I can ask Bayshore Medical Personnel to remove it at any time.</span></label>'+
         '<p class="note" style="grid-column:1/-1">Please don’t include health information or ID numbers. See our privacy policy for how we handle your data.</p>'+
         '<div style="grid-column:1/-1"><button type="submit" class="btn btn-red">Join the talent pool</button></div>'+
         '<div id="tp-done" class="status" style="grid-column:1/-1" hidden role="status"><strong style="color:var(--blue)">You’re in the talent pool.</strong><span>A recruiter will reach out from an @bayshore.ca address when a matching role opens.</span></div>'+
@@ -1203,15 +1242,15 @@ function renderJobs(){
   $('#f-shift').innerHTML=fbtns(SHIFT_OPTS,J.shift,'fshift',function(s){return JOBS.filter(function(j){return (s==='ft')===j.ft;}).length;});
   var m=matchJobs(J),list=m.list,n=list.length;
   var near=J.near?(m.relaxed?' Nothing '+(J.shift==='ft'?'full-time':'part-time')+' within '+J.near.km+' km of '+esc(J.near.name)+' right now, so these have other hours.':m.miss?' Nothing within '+J.near.km+' km of '+esc(J.near.name)+' right now, so these are the closest.':' Closest to '+esc(J.near.name)+' first.'):'';
-  $('#fw-count').innerHTML='<strong>'+pl(n,'opening')+'</strong> of '+JOBS.length+' on the BMP job board.'+near;
-  $('#fw-understood').innerHTML=J.matched?'<div class="understood" role="status"><strong>BMP AI understood</strong><ul>'+J.preview.map(function(p){return '<li><i>'+esc(p[0])+':</i> '+esc(p[1])+'</li>';}).join('')+'</ul><button type="button" class="lnk" style="justify-self:start;font-size:14px" data-act="fwclear">Clear AI filters</button></div>':'';
+  $('#fw-count').innerHTML='<strong>'+pl(n,'opening')+'</strong> of '+JOBS.length+' on our job board.'+near;
+  $('#fw-understood').innerHTML=J.matched?'<div class="understood" role="status"><strong>Our AI understood</strong><ul>'+J.preview.map(function(p){return '<li><i>'+esc(p[0])+':</i> '+esc(p[1])+'</li>';}).join('')+'</ul><button type="button" class="lnk" style="justify-self:start;font-size:14px" data-act="fwclear">Clear AI filters</button></div>':'';
   var key=[J.role,J.region,J.shift,J.kw,(J.settings||[]).join(','),J.near&&J.near.name,J.matched].join('|');if(key!==J.key){J.key=key;J.show=Math.max(10,J.show&&J.open!==null?J.show:10);}
   $('#fw-map-wrap').innerHTML=n?mapHTML('fw-map',list,{act:'fwmap',vb:[120,360,780,250],cls:'mini',sel:J.near?J.near.key:null}):'';
   var shown=list.slice(0,J.show),more=n-shown.length;
   if(J.open!==null&&!shown.some(function(j){return j.id===J.open;})){var oj=list.filter(function(j){return j.id===J.open;})[0];if(oj)shown.unshift(oj);}
   $('#fw-results').innerHTML=n?shown.map(function(j){var on=J.open===j.id;
     return '<li id="job-'+j.id+'"><button type="button" class="res-h" data-act="fwpick" data-id="'+j.id+'" aria-expanded="'+on+'" aria-controls="jb-'+j.id+'"><h3>'+esc(j.title)+'</h3><span class="when">Posted '+fmtDate(j.date)+'</span><span class="where">'+esc(locSummary(j))+(j.dist!==null&&J.near&&j.dist>=5?', <strong>'+Math.round(j.dist)+' km</strong> from '+esc(J.near.name):'')+'</span><span class="tags"><span class="hrs">'+shiftLabel(j)+'</span>'+j.tags.map(function(x){return '<span>'+TAG_NAME[x]+'</span>';}).join('')+'</span></button>'+
-      (on?'<div class="res-b" id="jb-'+j.id+'"><p>'+esc(j.blurb)+(j.trunc?'…':'')+'</p><p class="meta">Requisition '+esc(j.req)+'. '+esc(j.cat)+'. Posted '+fmtDate(j.date,true)+'. '+(j.locs.length>1?'Locations: '+esc(j.locs.map(function(l){return l.city+', '+l.prov;}).join('; '))+'.':'')+'</p><div class="btn-row"><a class="btn btn-red" href="'+esc(j.url)+'" target="_blank" rel="noopener">Read the full posting and apply '+arrow()+'</a><button type="button" class="lnk" data-act="askjob" data-id="'+j.id+'">Ask BMP about this role</button></div><p class="note">Opens requisition '+esc(j.req)+' on the BMP job board. A recruiter will contact you from an @bayshore.ca address. We will never ask you for payment.</p></div>':'')+'</li>';}).join(''):
+      (on?'<div class="res-b" id="jb-'+j.id+'"><p>'+esc(j.blurb)+(j.trunc?'…':'')+'</p><p class="meta">Requisition '+esc(j.req)+'. '+esc(j.cat)+'. Posted '+fmtDate(j.date,true)+'. '+(j.locs.length>1?'Locations: '+esc(j.locs.map(function(l){return l.city+', '+l.prov;}).join('; '))+'.':'')+'</p><div class="btn-row"><a class="btn btn-red" href="'+esc(j.url)+'" target="_blank" rel="noopener">Read the full posting and apply '+arrow()+'</a><button type="button" class="lnk" data-act="askjob" data-id="'+j.id+'">Ask BMP about this role</button></div><p class="note">Opens requisition '+esc(j.req)+' on our job board. A recruiter will contact you from an @bayshore.ca address. We will never ask you for payment.</p></div>':'')+'</li>';}).join(''):
     '<li class="empty"><strong style="color:var(--blue)">No current openings match.</strong><p>Try fewer filters, or join the talent pool and a recruiter will contact you when a matching role opens.</p><a class="lnk" href="#find-work" data-scroll="sec-pool">Join the talent pool</a></li>';
   $('#fw-more').innerHTML=more>0?'<button type="button" class="btn btn-line more" data-act="fwmore">Show '+Math.min(more,10)+' more ('+more+' left)</button>':'';
 }
@@ -1219,29 +1258,29 @@ function runMatch(q){var r=parseWork(q);Object.assign(S.J,{role:r.role,region:r.
 
 /* ---------- ROLES ---------- */
 PAGES.roles=function(){
-  return '<div class="wrap ph-split"><div><h1 id="roles-h" class="t-1" tabindex="-1">Roles we hire</h1><p class="lede">BMP hires physicians, nurses, therapists and pharmacy staff for clinics, hospitals and case management offices that serve federal clients. Choose a role to see the work and where we’re hiring now.</p></div><figure><img src="'+PHOTO('team-huddle.jpg')+'" alt="Clinic staff laughing together around a table during a morning huddle" style="object-position:50% 40%"></figure></div>'+
-  '<section class="sec band"><div class="wrap"><div class="roles" id="roles-index">'+rolesIndex(true)+'</div><p class="note" style="margin-top:28px">Descriptions draw on current BMP postings. Talent Acquisition to confirm before launch. BMP also staffs physiotherapists, respiratory therapists and audiologists.</p></div></section>';
+  return '<div class="wrap ph-split"><div><h1 id="roles-h" class="t-1" tabindex="-1">Roles we hire</h1><p class="lede">Bayshore Medical Personnel hires physicians, nurses, therapists and pharmacy staff for clinics, hospitals and case management offices that serve federal clients. Choose a role to see the work and where we’re hiring now.</p></div><figure><img src="'+PHOTO('team-huddle.jpg')+'" alt="Clinic staff laughing together around a table during a morning huddle" style="object-position:50% 40%"></figure></div>'+
+  '<section class="sec band"><div class="wrap"><div class="roles" id="roles-index">'+rolesIndex(true)+'</div><p class="note" style="margin-top:28px">Descriptions draw on current postings. Talent Acquisition to confirm before launch. We also staff physiotherapists, respiratory therapists and audiologists.</p></div></section>';
 };
 
 /* ---------- LOCATIONS ---------- */
 PAGES.locations=function(){
-  return '<section class="ph-band"><div class="wrap"><h1 class="t-1" tabindex="-1">Locations</h1><p class="lede">BMP staff work in '+LIVE.communities+' communities with current openings, from Esquimalt to Truro. Many are Canadian Forces bases and the towns around them.</p></div></section>'+
+  return '<section class="ph-band"><div class="wrap"><h1 class="t-1" tabindex="-1">Locations</h1><p class="lede">Bayshore Medical Personnel staff work in '+LIVE.communities+' communities with current openings, from Esquimalt to Truro. Many are Canadian Forces bases and the towns around them.</p></div></section>'+
   '<section class="sec"><div class="wrap">'+mapBlock('loc-map',true)+'</div></section>'+
   '<section class="sec tight" style="padding-top:0"><div class="wrap">'+REGIONS.map(function(r){var n=regionJobs(r.id).length,pls=regionPlaces(r.id);
     return '<article class="region" id="reg-'+r.id+'"><figure><img src="'+PHOTO(r.photo[0])+'" alt="'+esc(r.photo[1])+'" loading="lazy" style="object-position:'+r.photo[3]+'"><figcaption>'+esc(r.photo[2])+'</figcaption></figure><div><p class="provs">'+esc(r.provs)+'</p><h2 class="t-2">'+esc(r.name)+'</h2><p>'+ph(r.body)+'</p><p><strong style="color:var(--blue)">'+pl(n,'current opening')+'</strong>'+(pls.length?' in '+esc(pls.join(', ')):'')+'.</p><div class="btn-row"><a class="btn btn-red btn-sm" href="#find-work" data-act="jobsregion" data-v="'+r.id+'">Openings in '+esc(r.name)+'</a><a class="lnk" href="#partners" data-scroll="sec-request">Partner with us here</a></div></div></article>';}).join('')+
     '<p class="note">'+ph('[Placeholder city photos created with AI for this draft]')+'</p></div></section>'+
-  '<section class="sec band"><div class="wrap ph-split" style="padding-block:0"><div><h2 class="t-2">Recruiters wherever you are</h2><p class="lede">BMP works remotely, with an administrative team centred in Ontario and talent acquisition specialists across the country. You can interview by video wherever you live. '+ph('[Confirm interview options]')+'</p><p><a class="lnk" href="#find-work">Search open roles</a></p></div><figure><img src="'+PHOTO('recruiter-remote.jpg')+'" alt="A recruiter wearing a headset smiling during a video call from her home office" loading="lazy" style="object-position:40% 30%"></figure></div></section>';
+  '<section class="sec band"><div class="wrap ph-split" style="padding-block:0"><div><h2 class="t-2">Recruiters wherever you are</h2><p class="lede">Our recruiters work remotely, with an administrative team centred in Ontario and talent acquisition specialists across the country. You can interview by video wherever you live. '+ph('[Confirm interview options]')+'</p><p><a class="lnk" href="#find-work">Search open roles</a></p></div><figure><img src="'+PHOTO('recruiter-remote.jpg')+'" alt="A recruiter wearing a headset smiling during a video call from her home office" loading="lazy" style="object-position:40% 30%"></figure></div></section>';
 };
 
 /* ---------- PARTNERS ---------- */
 PAGES.partners=function(){
   return '<section class="sec blue on-blue"><div class="wrap p-grid">'+
-    '<div style="display:grid;gap:20px;align-content:start"><h1 id="c-hero" class="t-1" tabindex="-1">Health professionals for federal programs</h1><p class="lede">BMP recruits and employs physicians, nurses, therapists and pharmacy staff for clinics, hospitals and case management offices. We provide health care professionals to the Department of National Defence, the RCMP, Veterans Affairs Canada and the Public Health Agency of Canada.</p><div class="btn-row"><a class="btn btn-white" href="#partners" data-scroll="sec-request">Start an enquiry</a><a class="btn btn-ghost-w" href="tel:+18552725700">Call 1-855-272-5700</a></div><p class="small">Proof points to add: average time to fill <span class="ph">[X weeks]</span>, positions filled on time <span class="ph">[XX%]</span>, 12-month retention <span class="ph">[XX%]</span>. BMP is recruiting for '+pl(JOBS.length,'position')+' in '+LIVE.provinces+' provinces right now.</p></div>'+
+    '<div style="display:grid;gap:20px;align-content:start"><h1 id="c-hero" class="t-1" tabindex="-1">Health professionals for federal programs</h1><p class="lede">Bayshore Medical Personnel recruits and employs physicians, nurses, therapists and pharmacy staff for clinics, hospitals and case management offices. We provide health care professionals to the Department of National Defence, the RCMP, Veterans Affairs Canada and the Public Health Agency of Canada.</p><div class="btn-row"><a class="btn btn-white" href="#partners" data-scroll="sec-request">Start an enquiry</a><a class="btn btn-ghost-w" href="tel:+18552725700">Call 1-855-272-5700</a></div><p class="small">Proof points to add: average time to fill <span class="ph">[X weeks]</span>, positions filled on time <span class="ph">[XX%]</span>, 12-month retention <span class="ph">[XX%]</span>. We are recruiting for '+pl(JOBS.length,'position')+' in '+LIVE.provinces+' provinces right now.</p></div>'+
     partnerBox()+
   '</div></section>'+
   '<section class="sec"><div class="wrap ph-split" style="padding-block:0"><div><h2 class="t-2">Who we serve</h2><p>Bayshore has partnered with Calian to provide health support services to the Canadian Armed Forces, the RCMP and Veterans Affairs Canada.</p><ul class="cols" style="columns:1">'+CLIENTS.map(function(c){return '<li><strong>'+esc(c[0])+'</strong>'+ph(c[1])+'</li>';}).join('')+'</ul><p class="note">'+ph('[Legal to confirm how client and partner names may appear. No client logos are used.]')+'</p></div><figure><img src="'+PHOTO('partner-welcome.jpg')+'" alt="A clinic manager shaking hands with a newly arrived nurse at reception" loading="lazy" style="object-position:55% 35%"></figure></div></section>'+
   '<section class="sec band" id="sec-how"><div class="wrap"><div class="head"><div><h2 class="t-1">How we work with your program</h2></div></div>'+
-    '<ol class="timeline">'+[['Share the requirement','Roles, number of positions, locations, term, language and security screening. [Procurement vehicles BMP can respond through]'],['We recruit and screen','Talent acquisition specialists across Canada find candidates. We verify licences and references and arrange any screening your contract requires. [Confirm screening steps]'],['Professionals start','They complete BMP onboarding and your site orientation before day one. [Confirm]'],['Ongoing oversight','Clinical operations managers oversee the delivery of care and service and check compliance with internal and external standards of practice.']].map(function(s){return '<li><h3>'+esc(s[0])+'</h3><p>'+ph(s[1])+'</p></li>';}).join('')+'</ol>'+
+    '<ol class="timeline">'+[['Share the requirement','Roles, number of positions, locations, term, language and security screening. [Procurement vehicles we can respond through]'],['We recruit and screen','Talent acquisition specialists across Canada find candidates. We verify licences and references and arrange any screening your contract requires. [Confirm screening steps]'],['Professionals start','They complete our onboarding and your site orientation before day one. [Confirm]'],['Ongoing oversight','Clinical operations managers oversee the delivery of care and service and check compliance with internal and external standards of practice.']].map(function(s){return '<li><h3>'+esc(s[0])+'</h3><p>'+ph(s[1])+'</p></li>';}).join('')+'</ol>'+
   '</div></section>'+
   '<section class="sec"><div class="wrap"><div class="head"><div><h2 class="t-1">Professionals we provide</h2><p>For institutional and corporate clients.</p></div></div><ul class="cols">'+[['Medicine','Physicians, including occupational health and disability management'],['Nursing','Registered Nurses, Mental Health RNs, Registered and Licensed Practical Nurses'],['Rehabilitation','Occupational Therapists and Physiotherapists'],['Mental health','Psychologists and Mental Health RNs'],['Specialized care','Respiratory Therapists and Audiologists'],['Pharmacy','Pharmacists and Pharmacy Assistants']].map(function(r){return '<li><strong>'+r[0]+'</strong>'+r[1]+'</li>';}).join('')+'</ul></div></section>'+
   '<section class="sec band" id="sec-request"><div class="wrap ph-split" style="padding-block:0;align-items:start">'+
@@ -1271,7 +1310,7 @@ PAGES.partners=function(){
           '<div class="field full"><label for="r-notes">Anything else we should know?</label><textarea id="r-notes" rows="3" placeholder="Hours, specialty experience, site details (no patient details please)"></textarea></div>'+
         '</div>'+
       '</div>'+
-      '<div data-cstep="3" style="display:grid;gap:14px" hidden><dl class="prev" id="c-review"></dl><label class="check"><input type="checkbox" id="r-ok"><span>I agree BMP may contact me about this enquiry, per the privacy policy.</span></label></div>'+
+      '<div data-cstep="3" style="display:grid;gap:14px" hidden><dl class="prev" id="c-review"></dl><label class="check"><input type="checkbox" id="r-ok"><span>I agree Bayshore Medical Personnel may contact me about this enquiry, per the privacy policy.</span></label></div>'+
       '<div data-cstep="4" class="status" role="status" style="gap:12px" hidden><strong style="font:400 22px var(--serif);color:var(--blue)">Your enquiry is ready to send</strong><span>Select <strong>Open in your email app</strong> to send it to BMPinfo@bayshore.ca with every detail filled in. If your email app doesn’t open, copy the enquiry and email it to that address.</span>'+
         '<div class="btn-row"><a class="btn btn-blue" id="c-mail" href="mailto:BMPinfo@bayshore.ca">Open in your email app</a><button type="button" class="btn btn-line" data-act="ccopy">Copy enquiry</button></div>'+
         '<details><summary>See what will be sent</summary><pre class="mail" id="c-body"></pre></details>'+
@@ -1281,7 +1320,7 @@ PAGES.partners=function(){
   '</div></section>'+
   '<section class="sec"><div class="wrap ph-split" style="padding-block:0;align-items:start">'+
     '<div><h2 class="t-2" style="margin-bottom:10px">Common questions</h2>'+
-      '<details><summary>Which procurement vehicles can BMP respond through?</summary><p>'+ph('[Standing offers, supply arrangements and contract types, from Contracts.]')+'</p></details>'+
+      '<details><summary>Which procurement vehicles can you respond through?</summary><p>'+ph('[Standing offers, supply arrangements and contract types, from Contracts.]')+'</p></details>'+
       '<details><summary>Can you provide bilingual or French-speaking professionals?</summary><p>Yes. Many of our current postings in Quebec and Ottawa are bilingual. '+ph('[Confirm how language levels are assessed.]')+'</p></details>'+
       '<details><summary>Can your staff meet security screening requirements?</summary><p>'+ph('[Reliability and Secret screening process and timelines, from Operations.]')+'</p></details>'+
       '<details><summary>How are professionals credentialed?</summary><p>'+ph('[Licence verification, reference checks and mandatory training, from Talent Acquisition.]')+'</p></details>'+
@@ -1296,22 +1335,22 @@ function requestEmail(){
   var urgL=URG.filter(function(o){return o[0]===S.C.urg;})[0][1];
   var qty=v('r-qty')||'1',role=v('r-role'),loc=v('r-loc');
   var subject='Partner enquiry: '+qty+' × '+role+(loc?', '+loc:'')+' ('+urgL+')';
-  var lines=['Partner enquiry from the BMP website','',
+  var lines=['Partner enquiry from the Bayshore Medical Personnel website','',
     'ORGANIZATION AND CONTACT','Organization: '+(v('r-fac')||'Not given'),'Organization type: '+v('r-type'),'Contact name and title: '+(v('r-name')||'Not given'),'Work email: '+(v('r-email')||'Not given'),'Direct phone: '+(v('r-tel')||'Not given'),'Preferred language: '+v('r-pref'),'',
     'REQUIREMENT','How soon: '+urgL,'Role: '+role+' × '+qty,'Location: '+(loc||'Not given'),'Start date: '+(v('r-date')||'Not given'),'Term: '+v('r-term'),'Language requirement: '+v('r-lang'),'Security screening: '+v('r-clr'),'Contracting: '+v('r-proc'),'Notes: '+(v('r-notes')||'None'),'',
-    'The requester agreed that BMP may contact them about this enquiry.'];
+    'The requester agreed that Bayshore Medical Personnel may contact them about this enquiry.'];
   return {subject:subject,body:lines.join('\r\n')};
 }
 function renderClient(){
   var C=S.C,ai=C.ai,pv=$('#c-preview');
-  if(pv)pv.innerHTML=ai?'<div style="display:grid;gap:12px"><p class="step-label">BMP AI preview</p><dl class="prev">'+[['Role',ai.role],['Positions',ai.qty?String(ai.qty):null],['Location',ai.loc],['Start',ai.start],['Term',ai.term],['Language',ai.lang],['Security',ai.clr],['Priority',ai.priority]].map(function(f){var miss=!f[1];return '<div><dt>'+f[0]+'</dt><dd class="'+(miss?'miss':(f[0]==='Priority'&&ai.urgent?'urgent':''))+'">'+(miss?'Needs your input':esc(f[1]))+'</dd></div>';}).join('')+'</dl><div class="btn-row"><button type="button" class="btn btn-blue btn-sm" data-act="caccept">Looks right, continue</button><button type="button" class="lnk" data-act="cclear">Start over</button></div></div>':'';
+  if(pv)pv.innerHTML=ai?'<div style="display:grid;gap:12px"><p class="step-label">AI preview</p><dl class="prev">'+[['Role',ai.role],['Positions',ai.qty?String(ai.qty):null],['Location',ai.loc],['Start',ai.start],['Term',ai.term],['Language',ai.lang],['Security',ai.clr],['Priority',ai.priority]].map(function(f){var miss=!f[1];return '<div><dt>'+f[0]+'</dt><dd class="'+(miss?'miss':(f[0]==='Priority'&&ai.urgent?'urgent':''))+'">'+(miss?'Needs your input':esc(f[1]))+'</dd></div>';}).join('')+'</dl><div class="btn-row"><button type="button" class="btn btn-blue btn-sm" data-act="caccept">Looks right, continue</button><button type="button" class="lnk" data-act="cclear">Start over</button></div></div>':'';
   if(!$('#c-steps'))return;
   var names=['Organization and contact','Requirement','Review','Ready to send'];
   $$('#c-steps span').forEach(function(s,i){s.classList.toggle('on',C.step>i);});
   $('#c-step-label').textContent=C.step<4?'Step '+C.step+' of 3: '+names[C.step-1]:names[3];
   $$('[data-cstep]').forEach(function(el){el.hidden=Number(el.dataset.cstep)!==C.step;});
   $('#c-urg').innerHTML=URG.map(function(o){return '<button type="button" data-act="curg" data-v="'+o[0]+'" aria-pressed="'+(C.urg===o[0])+'">'+o[1]+'</button>';}).join('');
-  $('#c-prefilled').innerHTML=(C.aiAccepted&&ai)?'<div class="status small"><span><strong style="color:var(--blue)">Pre-filled by BMP AI:</strong> '+esc([ai.qty?ai.qty+' × '+(ai.role||'professional'):(ai.role||'role not set'),ai.loc||'location not set',ai.start?'start '+ai.start:'start not set',ai.term||'term not set',ai.lang||'language not set',ai.clr||'screening not set'].join(', '))+'. Please check each field below before continuing.</span></div>':'';
+  $('#c-prefilled').innerHTML=(C.aiAccepted&&ai)?'<div class="status small"><span><strong style="color:var(--blue)">Pre-filled by our AI:</strong> '+esc([ai.qty?ai.qty+' × '+(ai.role||'professional'):(ai.role||'role not set'),ai.loc||'location not set',ai.start?'start '+ai.start:'start not set',ai.term||'term not set',ai.lang||'language not set',ai.clr||'screening not set'].join(', '))+'. Please check each field below before continuing.</span></div>':'';
   if(C.step===3){var v=function(id){var e=$('#'+id);return e?e.value:'';};
     $('#c-review').innerHTML=[['How soon',URG.filter(function(o){return o[0]===C.urg;})[0][1]],['Role',v('r-role')+' × '+(v('r-qty')||1)],['Location',v('r-loc')||'Not given'],['Start',v('r-date')||'Not set'],['Term',v('r-term')],['Language',v('r-lang')],['Security',v('r-clr')],['Organization',v('r-fac')||'Not given'],['Sent to','BMPinfo@bayshore.ca']].map(function(f){return '<div><dt>'+f[0]+'</dt><dd>'+esc(f[1])+'</dd></div>';}).join('');}
   var back=$('[data-act="cback"]'),next=$('[data-act="cnext"]');
@@ -1336,7 +1375,7 @@ function acceptAI(){
 var NEWS=[
   {id:'cadet-camp-nursing',cat:'Careers',date:'2026-10-27',img:'news-cadet-camp.jpg',pos:'50% 50%',alt:'A nurse restocking a first aid kit on a table outside a field clinic tent, with mountains behind',
    title:'Summer nursing at a cadet training centre',
-   ex:'Each summer BMP hires Registered Nurses for the clinic at Camp Rocky Mountain, near Cochrane, Alberta.',
+   ex:'Each summer Bayshore Medical Personnel hires Registered Nurses for the clinic at Camp Rocky Mountain, near Cochrane, Alberta.',
    body:['The Cadet Camp Registered Nurse works at the Cadet Training Centre clinic at Camp Rocky Mountain (Bighorn) near Cochrane, Alberta. Last summer’s posting ran from July 2 to August 25, with full-time and part-time hours.',
      'The nurse provides primary health care and first aid to people on site, including Regular Force and Reserve Force members, the Cadet Instructor Cadre and cadets.',
      'Rations and quarters may be available on request. Watch our job board in the new year for the next summer posting. [Confirm 2027 dates]'],
@@ -1344,13 +1383,13 @@ var NEWS=[
   {id:'bilingual-nursing-ottawa',cat:'Careers',date:'2026-10-20',img:'news-bilingual.jpg',pos:'50% 35%',alt:'Two nurses in scrubs talking at a clinic nursing station, one holding a tablet',
    title:'Bilingual nursing roles in Ottawa',
    ex:'Several of our current Ottawa openings ask for nurses who work in English and French.',
-   body:['BMP is recruiting bilingual nurses in Ottawa. Current postings include a Mental Health Registered Nurse, a Primary Care Registered Nurse, an RN Case Manager and a Registered or Licensed Practical Nurse.',
+   body:['Bayshore Medical Personnel is recruiting bilingual nurses in Ottawa. Current postings include a Mental Health Registered Nurse, a Primary Care Registered Nurse, an RN Case Manager and a Registered or Licensed Practical Nurse.',
      'The practical nurse role sees patients on a walk-in and appointment basis in primary and ambulatory care settings, such as the care delivery unit, the treatment room and specialty clinics, in both languages.',
      'The RN Case Manager provides case management for clients with protracted and complex health issues.',
      'If you work in both languages, mention it when you apply. [Confirm how language skills are assessed]'],
    cta:['See Ottawa openings','#find-work','']},
   {id:'pharmacy-in-clinics',cat:'Careers',date:'2026-10-13',img:'news-pharmacy.jpg',pos:'45% 35%',alt:'A pharmacist checking a prescription label against a medication box at a clinic pharmacy workstation',
-   title:'What pharmacy work looks like in a BMP clinic',
+   title:'What pharmacy work looks like in our clinics',
    ex:'Our pharmacists and pharmacy assistants work in clinic pharmacies across Canada. Here is what the roles involve.',
    body:['In the clinics we serve, pharmacists are the medication management experts of the multidisciplinary health care team.',
      'Pharmacy assistants support the pharmacist with stock, orders and records. Current postings ask for at least three years of experience as a pharmacy assistant.',
@@ -1358,25 +1397,25 @@ var NEWS=[
      '[Add a short account from one of our pharmacists, with their permission.]'],
    cta:['See pharmacy openings','#find-work','']},
   {id:'spot-a-recruitment-scam',cat:'Advice',date:'2026-10-06',img:'news-scam.jpg',pos:'55% 35%',alt:'A man at a home desk frowning with suspicion at an email on his laptop',
-   title:'How to tell if a recruitment message is really from BMP',
+   title:'How to tell if a recruitment message is really from Bayshore Medical Personnel',
    ex:'People posing as recruiters are contacting health care workers by text and email. Here is what to watch for and how to check.',
    body:['Health care workers across Canada are getting job offers from people pretending to be recruiters. Some use the names of real health care companies, including ours.',
-     'A real BMP recruiter will never ask you to pay for training, equipment or a placement, send you a cheque, or ask for banking details before you are hired.',
+     'A real Bayshore Medical Personnel recruiter will never ask you to pay for training, equipment or a placement, send you a cheque, or ask for banking details before you are hired.',
      'Our recruiters email from an @bayshore.ca address, and you can always call 1-855-272-5700 to check who they are. [Confirm domains]',
      'If a message feels off, stop replying and check it on our Verify a recruiter page.'],
    cta:['Verify a recruiter','#verify','']},
   {id:'how-our-recruiters-work',cat:'Our team',date:'2026-09-29',img:'news-career-fair.jpg',pos:'50% 35%',alt:'Two recruiters at a career fair table talking with students',
    title:'How our talent acquisition team works',
-   ex:'BMP recruiters work remotely across Canada. Here is how they find and support new staff.',
-   body:['BMP’s talent acquisition specialists work from across the country, so there is usually someone who knows your region. Our administrative team is based in Ontario.',
+   ex:'Our recruiters work remotely across Canada. Here is how they find and support new staff.',
+   body:['Our talent acquisition specialists work from across the country, so there is usually someone who knows your region. Our administrative team is based in Ontario.',
      'A recruiter reviews your application, books your interview and checks your licence and references. [Confirm steps]',
      'We are also hiring: there is a current opening for a Bilingual Talent Acquisition Specialist in Moncton.',
      '[Add a short profile of one recruiter, with their permission.]'],
    cta:['See all openings','#find-work','']},
   {id:'ottawa-office',cat:'Our team',date:'2026-09-22',img:'news-ottawa-team.jpg',pos:'50% 40%',alt:'Four colleagues in an office meeting room on a video call with a remote colleague',
    title:'Inside our Ottawa office',
-   ex:'BMP’s administrative team works from our office on Merivale Road in Ottawa and with colleagues across the country.',
-   body:['Our office is at 1547 Merivale Road, Suite 220, in Ottawa. It is home base for the administrative team that supports BMP staff and clients.',
+   ex:'Our administrative team works from our office on Merivale Road in Ottawa and with colleagues across the country.',
+   body:['Our office is at 1547 Merivale Road, Suite 220, in Ottawa. It is home base for the administrative team that supports our staff and clients.',
      'Most of our work happens with colleagues in other provinces, so video calls are part of every day.',
      '[Add team news or a recent milestone, with permission from everyone pictured.]'],
    cta:null}
@@ -1397,8 +1436,8 @@ var FAMILY=[
    (no Google script, so nothing loads from Google until a visitor clicks). */
 var GPS_URL='https://www.google.com/preferences/source?q=medicalpersonnel.ca';
 function gpsBadge(theme){theme=theme||'light';return '<a class="gps" href="'+GPS_URL+'" target="_blank" rel="noopener"><img src="media/brand/google-preferred-source-'+theme+'-en.png" srcset="media/brand/google-preferred-source-'+theme+'-en@2x.png 2x" width="169" height="53" alt="Add Bayshore Medical Personnel as a preferred source on Google"></a>';}
-function gpsCard(){return '<aside class="gps-card" aria-label="Follow BMP on Google"><div><h2 class="t-3">See BMP news first on Google</h2><p>Add medicalpersonnel.ca as a preferred source and our posts are more likely to appear in Top Stories, AI Overviews and AI Mode when you search.</p></div>'+gpsBadge('light')+'</aside>';}
-PAGES.news=function(){return subnav(ABOUT_TABS,'news','About BMP')+'<div id="news-root"></div>';};
+function gpsCard(){return '<aside class="gps-card" aria-label="Follow Bayshore Medical Personnel on Google"><div><h2 class="t-3">See our news first on Google</h2><p>Add medicalpersonnel.ca as a preferred source and our posts are more likely to appear in Top Stories, AI Overviews and AI Mode when you search.</p></div>'+gpsBadge('light')+'</aside>';}
+PAGES.news=function(){return subnav(ABOUT_TABS,'news','About us')+'<div id="news-root"></div>';};
 function renderNews(){
   var root=$('#news-root');if(!root)return;
   var sel=S.newsSel&&NEWS.filter(function(n){return n.id===S.newsSel;})[0];
@@ -1415,7 +1454,7 @@ function renderNews(){
     return;
   }
   var cat=S.newsCat||'All',list=NEWS.filter(function(n){return cat==='All'||n.cat===cat;}),f=list[0];
-  root.innerHTML='<section class="ph-band"><div class="wrap"><h1 id="news-h" class="t-1" tabindex="-1">News and updates</h1><p class="lede">Openings, people and stories from BMP teams across Canada.</p><p class="small">'+ph('[Sample posts and AI-generated images for this draft. Replace with real stories before launch.]')+'</p></div></section>'+
+  root.innerHTML='<section class="ph-band"><div class="wrap"><h1 id="news-h" class="t-1" tabindex="-1">News and updates</h1><p class="lede">Openings, people and stories from Bayshore Medical Personnel teams across Canada.</p><p class="small">'+ph('[Sample posts and AI-generated images for this draft. Replace with real stories before launch.]')+'</p></div></section>'+
     '<section class="sec tight"><div class="wrap"><div class="n-cats" role="group" aria-label="Filter by topic">'+NEWS_CATS.map(function(c){return '<button type="button" data-act="ncat" data-v="'+esc(c)+'" aria-pressed="'+(c===cat)+'">'+esc(c)+'</button>';}).join('')+'</div>'+
     (f?'<a class="n-feat" href="#news" data-act="npost" data-id="'+f.id+'"><figure><img src="media/news/'+f.img+'" alt="'+esc(f.alt)+'" style="object-position:'+f.pos+'"></figure><div style="display:grid;gap:14px"><p class="n-meta"><span class="tag">'+esc(f.cat)+'</span><span>'+newsDate(f.date)+'</span></p><h2>'+esc(f.title)+'</h2><p>'+ph(f.ex)+'</p><span class="lnk">Read the post</span></div></a>':'<p>No posts in this topic yet.</p>')+
     (list.length>1?'<div class="n-list">'+list.slice(1).map(newsItem).join('')+'</div>':'')+gpsCard()+'</div></section>';
@@ -1444,7 +1483,7 @@ PAGES.privacy=function(){
 };
 PAGES.cookies=function(){
   return legalHead('cookies-h','Cookie policy','Bayshore does not publish a separate cookie policy. This is the cookies section of the Bayshore HealthCare Privacy Notice, word for word.','legal-cookies-hero.jpg','A nurse in scrubs relaxing on a sofa at home with a laptop and a cup of tea')+
-    '<section class="sec tight"><div class="wrap"><div class="lg-body"><h2>'+esc(COOKIE_SEC.h3)+'</h2>'+COOKIE_SEC.p.map(function(x){return '<p>'+esc(x)+'</p>';}).join('')+'<p class="note">'+ph('[Legal to decide whether BMP needs its own cookie policy and banner before launch]')+'</p><p><a class="lnk" href="#privacy">Read the full privacy policy</a></p></div></div></section>';
+    '<section class="sec tight"><div class="wrap"><div class="lg-body"><h2>'+esc(COOKIE_SEC.h3)+'</h2>'+COOKIE_SEC.p.map(function(x){return '<p>'+esc(x)+'</p>';}).join('')+'<p class="note">'+ph('[Legal to decide whether Bayshore Medical Personnel needs its own cookie policy and banner before launch]')+'</p><p><a class="lnk" href="#privacy">Read the full privacy policy</a></p></div></div></section>';
 };
 PAGES.accessibility=function(){
   var A=ACCESS;
@@ -1458,7 +1497,7 @@ PAGES.accessibility=function(){
 
 /* ---------- ABOUT ---------- */
 PAGES.about=function(){
-  return subnav(ABOUT_TABS,'about','About BMP')+'<div class="wrap ph-split"><div><h1 id="about-h" class="t-1" tabindex="-1">Health care professionals for those who serve</h1><p class="lede">Bayshore Medical Personnel provides health care professionals to Canadian military bases and communities, and develops programs that support members, Veterans and their families. We source and hire qualified health care professionals across the country to help our clients deliver excellent health care.</p></div><figure><img src="'+PHOTO('about-team.jpg')+'" alt="A group of health professionals smiling together outside a clinic entrance" style="object-position:50% 40%"></figure></div>'+
+  return subnav(ABOUT_TABS,'about','About us')+'<div class="wrap ph-split"><div><h1 id="about-h" class="t-1" tabindex="-1">Health care professionals for those who serve</h1><p class="lede">Bayshore Medical Personnel provides health care professionals to Canadian military bases and communities, and develops programs that support members, Veterans and their families. We source and hire qualified health care professionals across the country to help our clients deliver excellent health care.</p></div><figure><img src="'+PHOTO('about-team.jpg')+'" alt="A group of health professionals smiling together outside a clinic entrance" style="object-position:50% 40%"></figure></div>'+
   '<section class="sec band"><div class="wrap" style="display:grid;gap:36px"><h2 class="t-1">Our values</h2>'+
     '<p class="values-line">Compassion, respect, reliability, patience, professionalism, ethics, and continuous learning and improvement.</p>'+
     '<figure class="quote with-photo"><img class="q-photo" src="media/photos/stuart-cottrelle.jpg" alt="Stuart Cottrelle" width="480" height="600" loading="lazy"><div class="q-body"><blockquote style="font-size:clamp(20px,1.9vw,25px)">“I believe our values define and differentiate us. We deliver a unique Bayshore experience built on the principles of Compassion, Respect, Reliability, Patience, Professionalism, Ethics, as well as Continuous Learning and Improvement. These set us apart as an organization, caring for our community beyond just health care needs. We live and breathe these values every day, through our work with families and in how we treat each other.”</blockquote><figcaption><strong>Stuart Cottrelle</strong>, Founder and Chair Member, Bayshore HealthCare</figcaption></div></figure></div></section>'+
@@ -1480,23 +1519,23 @@ PAGES.about=function(){
 
 /* ---------- VERIFY ---------- */
 PAGES.verify=function(){
-  return '<div class="wrap ph-split"><div><h1 id="v-h" class="t-1" tabindex="-1">How to know it’s really BMP</h1><p class="lede">Some people pose as health care recruiters to collect personal information or money. Here’s how a real BMP recruiter will and won’t contact you.</p></div><figure><img src="'+PHOTO('fraud-alert.jpg')+'" alt="Hands holding a smartphone above a desk beside an open laptop" style="object-position:55% 40%"></figure></div>'+
+  return '<div class="wrap ph-split"><div><h1 id="v-h" class="t-1" tabindex="-1">How to know it’s really Bayshore Medical Personnel</h1><p class="lede">Some people pose as health care recruiters to collect personal information or money. Here’s how a real Bayshore Medical Personnel recruiter will and won’t contact you.</p></div><figure><img src="'+PHOTO('fraud-alert.jpg')+'" alt="Hands holding a smartphone above a desk beside an open laptop" style="object-position:55% 40%"></figure></div>'+
   '<section class="sec band"><div class="wrap" style="display:grid;gap:48px">'+
-    '<div class="vw"><section class="yes"><h2 class="t-3">A real BMP recruiter will</h2><ul>'+['Email only from an <strong>@bayshore.ca</strong> address <span class="ph">[confirm domains]</span>','Link to postings on our job board at recruiting.ultipro.ca','Interview you by video or phone before any offer','Be happy for you to call 1-855-272-5700 to confirm who they are'].map(function(x){return '<li>'+I.yes+'<span>'+x+'</span></li>';}).join('')+'</ul></section>'+
-    '<section class="no"><h2 class="t-3">A real BMP recruiter will never</h2><ul>'+['Ask you to pay for training, equipment, uniforms or a placement','Send you a cheque or ask you to buy gift cards','Offer a job by text or messaging app without an interview','Ask for banking details or your SIN before you’re hired'].map(function(x){return '<li>'+I.no+'<span>'+x+'</span></li>';}).join('')+'</ul></section></div>'+
-    '<section class="checker" style="background:#fff"><h2 class="t-3">Check a recruiter or message</h2><p>Enter the email address or phone number that contacted you. We’ll tell you whether it matches BMP’s published contacts.</p>'+
+    '<div class="vw"><section class="yes"><h2 class="t-3">A real recruiter will</h2><ul>'+['Email only from an <strong>@bayshore.ca</strong> address <span class="ph">[confirm domains]</span>','Link to postings on our job board at recruiting.ultipro.ca','Interview you by video or phone before any offer','Be happy for you to call 1-855-272-5700 to confirm who they are'].map(function(x){return '<li>'+I.yes+'<span>'+x+'</span></li>';}).join('')+'</ul></section>'+
+    '<section class="no"><h2 class="t-3">A real recruiter will never</h2><ul>'+['Ask you to pay for training, equipment, uniforms or a placement','Send you a cheque or ask you to buy gift cards','Offer a job by text or messaging app without an interview','Ask for banking details or your SIN before you’re hired'].map(function(x){return '<li>'+I.no+'<span>'+x+'</span></li>';}).join('')+'</ul></section></div>'+
+    '<section class="checker" style="background:#fff"><h2 class="t-3">Check a recruiter or message</h2><p>Enter the email address or phone number that contacted you. We’ll tell you whether it matches our published contacts.</p>'+
       '<form data-form="verify" novalidate><div class="field"><label for="v-in">Email or phone number</label><input id="v-in" placeholder="jane.doe@bayshore.ca"></div><button type="submit" class="btn btn-blue">Check</button></form><div id="v-out" aria-live="polite"></div>'+
-      '<p class="note">Checks against BMP’s published contacts only. If you’re unsure, call us before sharing anything.</p></section>'+
+      '<p class="note">Checks against our published contacts only. If you’re unsure, call us before sharing anything.</p></section>'+
   '</div></section>'+
-  '<section class="sec"><div class="wrap three"><div><h2 class="t-3">Think you’ve been targeted?</h2><p>Stop responding, don’t send money or documents, and let us know. We’ll confirm and help you report it.</p></div><div><h2 class="t-3">Call our office</h2><p>1-855-272-5700 '+ph('[hours]')+'</p></div><div><h2 class="t-3">Report it</h2><p>Canadian Anti-Fraud Centre: 1-888-495-8501</p><p><button type="button" class="lnk" data-act="demo" data-msg="The report form connects to Bayshore’s privacy team at launch.">Tell BMP about a suspicious message</button></p></div></div></section>';
+  '<section class="sec"><div class="wrap three"><div><h2 class="t-3">Think you’ve been targeted?</h2><p>Stop responding, don’t send money or documents, and let us know. We’ll confirm and help you report it.</p></div><div><h2 class="t-3">Call our office</h2><p>1-855-272-5700 '+ph('[hours]')+'</p></div><div><h2 class="t-3">Report it</h2><p>Canadian Anti-Fraud Centre: 1-888-495-8501</p><p><button type="button" class="lnk" data-act="demo" data-msg="The report form connects to Bayshore’s privacy team at launch.">Report a suspicious message</button></p></div></div></section>';
 };
 function verifyCheck(v){
   var t=v.trim(), out=$('#v-out');if(!t){out.innerHTML='<p class="small" style="color:var(--red)">Enter an email address or phone number to check.</p>';return;}
   var digits=t.replace(/\D/g,'');
-  if(/^(bmpinfo|bmprecruiter)@bayshore\.ca$/i.test(t)){out.innerHTML='<div class="status teal"><strong style="color:var(--navy)">That is one of BMP’s official inboxes.</strong><span>'+(/recruit/i.test(t)?'BMPrecruiter@bayshore.ca is our recruitment inbox.':'BMPinfo@bayshore.ca is our general and client inbox.')+'</span></div>';}
+  if(/^(bmpinfo|bmprecruiter)@bayshore\.ca$/i.test(t)){out.innerHTML='<div class="status teal"><strong style="color:var(--navy)">That is one of our official inboxes.</strong><span>'+(/recruit/i.test(t)?'BMPrecruiter@bayshore.ca is our recruitment inbox.':'BMPinfo@bayshore.ca is our general and client inbox.')+'</span></div>';}
   else if(/@bayshore\.ca$/i.test(t)){out.innerHTML='<div class="status teal"><strong style="color:var(--navy)">This uses Bayshore’s official domain.</strong><span>Once connected, this check also confirms the person is on our published recruiter list. '+ph('[Connect recruiter directory]')+'</span></div>';}
-  else if(/18552725700$/.test(digits)||digits==='8552725700'){out.innerHTML='<div class="status teal"><strong style="color:var(--navy)">That is BMP’s main line.</strong><span>You can call it to confirm any message you received.</span></div>';}
-  else{out.innerHTML='<div class="status" style="background:var(--orange-soft)"><strong style="color:var(--navy)">We couldn’t match this to BMP’s recruitment team.</strong><span>Don’t send money, documents or banking details. Call 1-855-272-5700 to check before you reply.</span></div>';}
+  else if(/18552725700$/.test(digits)||digits==='8552725700'){out.innerHTML='<div class="status teal"><strong style="color:var(--navy)">That is our main line.</strong><span>You can call it to confirm any message you received.</span></div>';}
+  else{out.innerHTML='<div class="status" style="background:var(--orange-soft)"><strong style="color:var(--navy)">We couldn’t match this to our recruitment team.</strong><span>Don’t send money, documents or banking details. Call 1-855-272-5700 to check before you reply.</span></div>';}
 }
 
 
@@ -1513,8 +1552,8 @@ var KB={
     {k:['schedule','hours','weekend','evening','night','shift','part','full'],a:'We have full-time and part-time positions. Many offer options with no evenings or weekends, and each posting lists its hours.',cta:'See open roles',href:'#find-work'},
     {k:['pay','rate','wage','salary','benefit','dental'],a:'Pay is based on your skills, experience and the local market, with health and dental benefits and more. A recruiter confirms the details for each role. [Confirm full benefits list]',cta:'Compare postings',href:'#find-work'},
     {k:['portal','login','log in','password','sign in','account'],a:'Our job board runs on UKG. If you can’t sign in, use “Forgot password” on the job board, or email BMPrecruiter@bayshore.ca and a recruiter will help.',cta:'Talk to a recruiter',href:'#about',scroll:'sec-contact'},
-    {k:['scam','fraud','real','legit','fake','recruiter'],a:'BMP recruiters email from @bayshore.ca and never ask for payment. You can check any email or number on our verification page, or call 1-855-272-5700.',cta:'Verify a recruiter',href:'#verify'},
-    {k:['military','forces','veteran','rcmp','serve','client'],a:'Our clinicians work in clinics and offices that support the Canadian Armed Forces, the RCMP, Veterans and federal public health programs. [Confirm whether any roles need military experience]',cta:'About BMP',href:'#about'},
+    {k:['scam','fraud','real','legit','fake','recruiter'],a:'Our recruiters email from @bayshore.ca and never ask for payment. You can check any email or number on our verification page, or call 1-855-272-5700.',cta:'Verify a recruiter',href:'#verify'},
+    {k:['military','forces','veteran','rcmp','serve','client'],a:'Our clinicians work in clinics and offices that support the Canadian Armed Forces, the RCMP, Veterans and federal public health programs. [Confirm whether any roles need military experience]',cta:'About us',href:'#about'},
     {k:['clearance','security','reliability','screening'],a:'Some clients need a security screening, such as reliability status. The posting or your recruiter will tell you what a role needs. [Confirm screening steps and timelines]',cta:'Browse jobs',href:'#find-work'},
     {k:['french','bilingual','language'],a:'Many of our Ottawa and Quebec postings ask for English and French. Mention your languages when you apply. Try asking me for “bilingual nursing jobs in Ottawa”.',cta:'See openings',href:'#find-work'},
     {k:['where','region','location','province'],a:'We have openings in '+LIVE.provinces+' provinces, from British Columbia to Nova Scotia. Ask me about a role and a place, like “pharmacist jobs near Petawawa”, and I’ll check current openings.',cta:'Where we work',href:'#where-we-work'}
@@ -1525,7 +1564,7 @@ var KB={
     {k:['role','physician','nurse','rn','rpn','lpn','pharmac','therap','psycholog','audiolog'],a:'We provide physicians, registered and practical nurses, mental health nurses, occupational therapists, physiotherapists, psychologists, respiratory therapists, audiologists, pharmacists and pharmacy assistants.',cta:'Professionals we provide',href:'#partners',scroll:'sec-how'},
     {k:['french','bilingual','language'],a:'Yes. Many of our current postings in Quebec and Ottawa are bilingual, and we can recruit for English, French or bilingual positions.',cta:'Start an enquiry',href:'#partners',scroll:'sec-request'},
     {k:['credential','licen','qualif','reference','check'],a:'We verify licences and references before anyone starts. [Talent Acquisition to confirm the full credentialing steps]',cta:'How we work',href:'#partners',scroll:'sec-how'},
-    {k:['procure','standing offer','contract','rfp','tender','price','cost','rate'],a:'Pricing depends on the role, location, term and volume. [Contracts to confirm which procurement vehicles BMP can respond through.] Send an enquiry and our team will follow up.',cta:'Start an enquiry',href:'#partners',scroll:'sec-request'},
+    {k:['procure','standing offer','contract','rfp','tender','price','cost','rate'],a:'Pricing depends on the role, location, term and volume. [Contracts to confirm which procurement vehicles we can respond through.] Send an enquiry and our team will follow up.',cta:'Start an enquiry',href:'#partners',scroll:'sec-request'},
     {k:['who','client','federal','dnd','defence','rcmp','veteran','phac'],a:'We provide health care professionals to the Department of National Defence, the RCMP, Veterans Affairs Canada and the Public Health Agency of Canada.',cta:'Partner with us',href:'#partners'},
     {k:['where','region','area','cover','province'],a:'Our professionals work from British Columbia to Atlantic Canada, and we can recruit for programs anywhere in Canada.',cta:'Where we work',href:'#where-we-work'}
   ]
@@ -1646,7 +1685,7 @@ function micDemo(){
 }
 /* who BMP belongs to (both audiences) */
 (function(){var fam={k:['part of','parent','owns','owned','sister','carecor','oems','occupational','northern staffing','healthcare staffing','bhsd','who is bayshore','about bayshore'],
-  a:'BMP is part of Bayshore HealthCare Staffing, the staffing division of Bayshore HealthCare. Our sister companies include Carecor Health Services, 24/7 Occupational & Emergency Medicine Solutions and Bayshore Northern Staffing.',cta:'About BMP',href:'#about',scroll:'sec-bayshore'};
+  a:'Bayshore Medical Personnel is part of Bayshore HealthCare Staffing, the staffing division of Bayshore HealthCare. Our sister companies include Carecor Health Services, 24/7 Occupational & Emergency Medicine Solutions and Bayshore Northern Staffing.',cta:'About us',href:'#about',scroll:'sec-bayshore'};
   KB.seeker.unshift(fam);KB.client.unshift(fam);})();
 function setPanel(open){
   S.A.open=open;var p=$('#ask-panel');p.classList.toggle('closed',!open);$('#scrim').hidden=!open;
@@ -1661,14 +1700,14 @@ function renderFab(scrollEnd){
   var h='<div class="p-head"><div><h2>Ask BMP</h2><small>AI assistant'+(client?' for government and corporate clients':A.aud==='seeker'?' for health professionals':'')+'</small></div><div style="display:flex"><button type="button" class="icon-btn" data-act="areset" aria-label="Start over">'+I.reset+'</button><button type="button" class="icon-btn" data-act="atoggle" aria-label="Close Ask BMP">'+I.close+'</button></div></div>';
   if(A.aud)h+='<div class="p-modes" role="tablist" aria-label="Chat or voice"><button type="button" role="tab" data-act="achat" aria-selected="'+(A.mode==='chat')+'">'+I.chat+'Chat</button><button type="button" role="tab" data-act="avoice" aria-selected="'+(A.mode==='voice')+'">'+I.mic+'Voice</button></div>';
   if(!A.aud){
-    h+='<div class="p-body"><p>Hi, I’m BMP’s assistant. Which describes you?</p><div class="aud"><button type="button" data-act="apick" data-v="seeker"><strong>I’m looking for work</strong><span class="small muted">Jobs, applying, hours, the job board</span></button><button type="button" data-act="apick" data-v="client"><strong>I need health professionals</strong><span class="small muted">Roles, timelines, screening, partner enquiries</span></button></div><p class="note">Please don’t share health information, patient details or ID numbers here.</p></div>';
+    h+='<div class="p-body"><p>Hi, I’m the Bayshore Medical Personnel assistant. Which describes you?</p><div class="aud"><button type="button" data-act="apick" data-v="seeker"><strong>I’m looking for work</strong><span class="small muted">Jobs, applying, hours, the job board</span></button><button type="button" data-act="apick" data-v="client"><strong>I need health professionals</strong><span class="small muted">Roles, timelines, screening, partner enquiries</span></button></div><p class="note">Please don’t share health information, patient details or ID numbers here.</p></div>';
   }else if(A.mode==='chat'){
-    h+='<div class="p-body" id="p-body" aria-live="polite"><div class="bub bot">'+(client?'I can answer questions about working with BMP: the roles we provide, timelines, language and security screening. I can also start a partner enquiry.':'I can find openings, explain how applying works and answer questions about working with BMP.')+'</div>';
+    h+='<div class="p-body" id="p-body" aria-live="polite"><div class="bub bot">'+(client?'I can answer questions about working with Bayshore Medical Personnel: the roles we provide, timelines, language and security screening. I can also start a partner enquiry.':'I can find openings, explain how applying works and answer questions about working with Bayshore Medical Personnel.')+'</div>';
     A.msgs.forEach(function(m){h+='<div class="bub '+(m.me?'me':'bot')+'">'+(m.me?esc(m.text):ph(m.text))+'</div>'+(!m.me&&m.cta?'<a class="bub-cta" href="'+m.href+'" data-act="aclose-nav"'+(m.q?' data-q="'+esc(m.q)+'"':'')+(m.scroll?' data-scroll="'+m.scroll+'"':'')+'>'+esc(m.cta)+'</a>':'');});
     if(A.thinking)h+='<div class="bub bot muted small">Ask BMP is typing…</div>';
     var chips=client?['Which roles do you provide?','Can staff meet security screening?','Do you have bilingual staff?','How long does it take to fill a role?']:['How do I apply?','Are there nursing jobs near Ottawa?','Is this recruiter real?','Do any jobs have a signing bonus?'];
     h+='<div class="p-chips">'+chips.map(function(c){return '<button type="button" data-act="aask" data-q="'+esc(c)+'">'+esc(c)+'</button>';}).join('')+'</div></div>';
-    h+='<form class="p-form" data-form="ask"><label class="sr" for="p-input">Type your question</label><input id="p-input" autocomplete="off" value="'+esc(A.draft)+'" placeholder="'+(client?'Ask about working with BMP':'Ask about jobs or applying')+'"><button type="button" class="round" data-act="avoice" aria-label="Switch to voice">'+I.mic+'</button><button type="submit" class="round fill" aria-label="Send">'+I.arrow+'</button></form>';
+    h+='<form class="p-form" data-form="ask"><label class="sr" for="p-input">Type your question</label><input id="p-input" autocomplete="off" value="'+esc(A.draft)+'" placeholder="'+(client?'Ask about working with us':'Ask about jobs or applying')+'"><button type="button" class="round" data-act="avoice" aria-label="Switch to voice">'+I.mic+'</button><button type="submit" class="round fill" aria-label="Send">'+I.arrow+'</button></form>';
   }else{
     var hs=A.voice==='listening'?[10,22,14,26,18,24,12,20,9]:A.voice==='speaking'?[14,18,24,12,26,16,22,10,18]:[4,4,4,4,4,4,4,4,4];
     var st={idle:'Tap the microphone to speak',listening:'Listening…',thinking:'Finding an answer…',speaking:'Ask BMP is speaking'}[A.voice];
@@ -1676,8 +1715,8 @@ function renderFab(scrollEnd){
       '<div style="align-self:stretch;display:grid;gap:6px"><span class="small" style="font-weight:700;color:var(--blue);text-align:left">Live captions</span><div class="captions" aria-live="polite">'+(A.captions.length?A.captions.map(function(c){return '<span><strong style="color:'+(c.me?'var(--blue)':'var(--sky-ink)')+'">'+(c.me?'You':'Ask BMP')+':</strong> '+ph(c.text)+'</span>';}).join(''):'<span class="muted">Ask out loud, for example: “'+(client?'We need two pharmacists in Petawawa':'Are there nursing jobs near Ottawa?')+'”</span>')+'</div></div>'+
       (A.voiceNote?'<p class="voice-note" role="status">'+esc(A.voiceNote)+'</p>':'')+
       (A.voiceCta&&A.voice!=='listening'?'<a class="bub-cta" href="'+A.voiceCta.href+'" data-act="aclose-nav"'+(A.voiceCta.q?' data-q="'+esc(A.voiceCta.q)+'"':'')+(A.voiceCta.scroll?' data-scroll="'+A.voiceCta.scroll+'"':'')+'>'+esc(A.voiceCta.cta)+'</a>':'')+
-      '<div class="btn-row" style="align-self:stretch"><button type="button" class="btn btn-line btn-sm" style="flex:1" data-act="achat">Switch to typing</button><a class="btn btn-blue btn-sm" style="flex:1" href="tel:+18552725700">Call BMP</a></div>'+
-      '<p class="note">Your browser’s speech service turns what you say into text. BMP doesn’t keep a recording. '+ph('[Privacy to approve this wording]')+'</p></div>';
+      '<div class="btn-row" style="align-self:stretch"><button type="button" class="btn btn-line btn-sm" style="flex:1" data-act="achat">Switch to typing</button><a class="btn btn-blue btn-sm" style="flex:1" href="tel:+18552725700">Call us</a></div>'+
+      '<p class="note">Your browser’s speech service turns what you say into text. We don’t keep a recording. '+ph('[Privacy to approve this wording]')+'</p></div>';
   }
   if(A.aud)h+='<div class="p-foot"><span>AI answers can be incomplete.</span><span style="display:flex;gap:14px"><button type="button" data-act="aswitch">'+(client?'I’m a job seeker':'I need health professionals')+'</button><a href="'+(client?'#partners':'#about')+'" data-act="aclose-nav" data-scroll="'+(client?'sec-request':'sec-contact')+'">'+(client?'Contact our team':'Talk to a recruiter')+'</a></span></div>';
   fab.innerHTML=h;
@@ -1703,8 +1742,8 @@ function route(){
     if(r==='partners')renderClient();
     if(r==='privacy')setTimeout(legalSpy,50);
     if(r==='news'){if(!S.newsKeep)S.newsSel=null;S.newsKeep=false;renderNews();}
-    var TT={home:'','find-work':'Find work',roles:'Roles we hire',locations:'Locations',partners:'Partner with us',about:'About',news:'News and updates',verify:'Verify a recruiter',privacy:'Privacy policy',cookies:'Cookie policy',accessibility:'Accessibility'};
-    document.title=(TT[r]?TT[r]+' | ':'')+'Bayshore Medical Personnel';
+    var TT={home:'','find-work':'Federal health care jobs',roles:'Health care roles we hire',locations:'Locations across Canada',partners:'Staffing for federal health programs',about:'About',news:'News and updates',verify:'Verify a recruiter',privacy:'Privacy policy',cookies:'Cookie policy',accessibility:'Accessibility'};
+    document.title=r==='home'?'Bayshore Medical Personnel | Health care professionals for federal programs across Canada':(TT[r]?TT[r]+' | ':'')+'Bayshore Medical Personnel';
     if(!S.A.picked){S.A.aud=PAGE_AUD[r];renderFab();}
   }
   if(S.auto){var a=S.auto;S.auto=null;a();}
@@ -1739,8 +1778,9 @@ var ACT={
   hex:function(t){var q=WORK_EX[Number(t.dataset.i)][1];var ta=$('#hero-q');ta.value=q;S.hero.q=q;ta.focus();},
   vidtoggle:function(){var v=$('#hero-video');S.vidPlaying=!S.vidPlaying;if(v&&S.heroVideo){if(S.vidPlaying){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});}else v.pause();}syncVidBtn();var b=$('[data-act="vidtoggle"]');if(b)b.focus();},
   mapregion:function(t){S.M.region=t.dataset.v;S.M.sel=null;refreshMap();},
-  mappick:function(t){S.M.sel=S.M.sel===t.dataset.k?null:t.dataset.k;refreshMap();var p=$('.map .pin[data-k="'+(S.M.sel||'').replace(/"/g,'\\"')+'"]');if(p&&t.classList.contains('pin'))p.focus();if(matchMedia('(max-width:900px)').matches&&S.M.sel)scrollToId('map-side');},
+  mappick:function(t){S.M.sel=S.M.sel===t.dataset.k?null:t.dataset.k;if(S.M.sel)S.M.prov=S.M.sel.split('|')[1]||S.M.prov;refreshMap();var p=$('.map .pin[data-k="'+(S.M.sel||'').replace(/"/g,'\\"')+'"]');if(p&&t.classList.contains('pin'))p.focus();if(matchMedia('(max-width:900px)').matches&&S.M.sel)scrollToId('map-side');},
   mapclear:function(){S.M.sel=null;refreshMap();},
+  mapprov:function(t){S.M.prov=S.M.prov===t.dataset.v?null:t.dataset.v;S.M.sel=null;refreshMap();var b=$('.pv-b[data-v="'+t.dataset.v+'"]');if(b)b.focus();},
   mapnear:function(t,e){e.preventDefault();var k=t.dataset.k.split('|'),p=placeIndex(JOBS).filter(function(x){return x.key===t.dataset.k;})[0];resetJ({near:{name:k[0],lat:p.lat,lon:p.lon,km:50,key:p.key}});go('find-work','fw-results');return 'handled';},
   openjob:function(t,e){e.preventDefault();var id=Number(t.dataset.id);resetJ({open:id});go('find-work','job-'+id);return 'handled';},
   jobsregion:function(t,e){e.preventDefault();resetJ({region:t.dataset.v||'all'});go('find-work','fw-results');return 'handled';},
