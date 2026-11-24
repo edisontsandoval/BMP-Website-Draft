@@ -1,7 +1,24 @@
 {
- "checked": "2026-11-24T16:28-05:00",
+ "checked": "2026-11-24T17:43-05:00",
  "count": 51,
  "jobs": [
+  {
+   "id": "1486ec69-2b03-4f69-bbe3-4f6248992c91",
+   "t": "Pharmacist",
+   "req": "PHARM002447",
+   "ft": false,
+   "cat": "Other Care and Support to Patients",
+   "d": "2026-11-24",
+   "loc": [
+    [
+     "Edmonton",
+     "AB",
+     51.047,
+     -114.063
+    ]
+   ],
+   "b": "Bayshore Medical Personnel is excited to announce a part-time contract opportunity (7.5hrs/week) for a Pharmacist to join our team in Edmonton, AB! We're looking for dedicated professionals to make a meaningful impact in Military Health Services."
+  },
   {
    "id": "d1a0b4c7-4df6-48fe-9a89-a0723d64bc4e",
    "t": "Registered Practical Nurse",
@@ -592,23 +609,6 @@
     ]
    ],
    "b": "Bayshore Medical Personnel is excited to announce a Full-time Contract opportunity for a Mental Health Registered Nurse (RN) with three (3) years of experience to join the team in Borden, Ontario.  We're looking for dedicated professionals to make a meaningful impact in Military Health Services!"
-  },
-  {
-   "id": "1486ec69-2b03-4f69-bbe3-4f6248992c91",
-   "t": "Pharmacist",
-   "req": "PHARM002447",
-   "ft": false,
-   "cat": "Other Care and Support to Patients",
-   "d": "2026-11-04",
-   "loc": [
-    [
-     "Edmonton",
-     "AB",
-     51.047,
-     -114.063
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is excited to announce a part-time contract opportunity (7.5hrs/week) for a Pharmacist to join our team in Edmonton, AB! We're looking for dedicated professionals to make a meaningful impact in Military Health Services."
   },
   {
    "id": "f2badc19-b698-45d7-ab7a-fb8000c87b5e",
