@@ -1,6 +1,6 @@
 {
- "checked": "2026-11-23T17:52-05:00",
- "count": 52,
+ "checked": "2026-11-23T19:17-05:00",
+ "count": 50,
  "jobs": [
   {
    "id": "33caf229-ca89-4556-b50f-f93e5d9f800e",
@@ -862,23 +862,6 @@
    "b": "The Clinical Operations Manager, under the direction of the National Director, is responsible for the delivery of care and service to clients and ensures compliance with internal and external standards of practice. She or he supports recruitment activities and supervises Administrative and Field employees and coordinates clinical education and in-service activities as required. The Clinical Operations Manager, in kee"
   },
   {
-   "id": "57b91c89-c64d-43f5-bdb3-0617b847e2f5",
-   "t": "Pharmacy Assistant",
-   "req": "PHARM003257",
-   "ft": true,
-   "cat": "Other Care and Support to Patients",
-   "d": "2026-09-23",
-   "loc": [
-    [
-     "Halifax",
-     "NS",
-     45.191,
-     -62.294
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is excited to announce a full-time contract opportunity for a Pharmacy Assistant to join our team in Halifax, NS! We're looking for dedicated professionals with at least 3 years of experience as a Pharmacy Assistant."
-  },
-  {
    "id": "5f07d649-bde8-493f-b7a9-25040802bcd8",
    "t": "Mental Health Registered Nurse",
    "req": "MENTA002670",
@@ -911,23 +894,6 @@
     ]
    ],
    "b": "Bayshore Medical Personnel is excited to announce a Contract opportunity for a Occupational therapist with one (1) year of experience to join the team in Gagetown, New Brunswick.  We're looking for dedicated professionals to make a meaningful impact in Military Health Services! This is an exciting opportunity for an Occupational Therapist (more Mental Health Focused) who is looking for a Monday - Friday career opport"
-  },
-  {
-   "id": "3bc52599-e145-4e98-9372-1edc42df7e8e",
-   "t": "Licensed Practical Nurse",
-   "req": "LICEN002646",
-   "ft": true,
-   "cat": "Nurse",
-   "d": "2026-08-20",
-   "loc": [
-    [
-     "Comox",
-     "BC",
-     49.683,
-     -124.95
-    ]
-   ],
-   "b": "Bayshore Medical Personnel is excited to announce a Full-time Contract opportunity for a Licensed Practical Nurse with one (1) year of experience to join the team in Comox, British Columbia.  We're looking for dedicated professionals to make a meaningful impact in Military Health Services!"
   },
   {
    "id": "8b047160-3964-471a-8499-498e2dc17ba7",
